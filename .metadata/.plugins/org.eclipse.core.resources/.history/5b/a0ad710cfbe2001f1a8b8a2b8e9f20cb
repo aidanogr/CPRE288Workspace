@@ -1,0 +1,28 @@
+/*
+ * movement.c
+ *
+ *  Created on: Feb 4, 2025
+ *      Author: ahogrady
+ */
+
+
+#include "open_interface.h"
+#include <stdint.h>
+
+
+
+double move_forward(oi_t* sensor_data, double distance_mm) {
+    double sum = 0; // distance member in oi_t struct is type double
+    double initial_distance = sensor_data->distance;
+    oi_setWheels(500,500); //move forward at full speed
+
+    while (sum < distance_mm) {
+    oi_update(sensor_data);
+    sum += sensor_data -> distance - initial_distance; // use -> notation since pointer
+    }
+    oi_setWheels(0,0); //stop
+    return sum;
+}
+
+
+

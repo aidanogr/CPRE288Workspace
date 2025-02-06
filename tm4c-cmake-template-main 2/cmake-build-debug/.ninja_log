@@ -1,0 +1,18 @@
+# ninja log v6
+107	418	1738670791720315000	clean	ad90e366ad70d77b
+89	432	1738668363527590000	CMakeFiles/Test.elf.dir/src/main.c.obj	9c01fec17b982
+590	1163	1738670794012296000	CMakeFiles/Test.elf.dir/src/open_interface.c.obj	66c69cf7dbb91e61
+464	967	1738671023169209000	CMakeFiles/Test.elf.dir/src/SysTick.c.obj	d30bf9a93f5fc226
+230	914	1738671022927797000	CMakeFiles/Test.elf.dir/src/helloworld.c.obj	21733a5e7bbec6c
+265	800	1738671022976322000	CMakeFiles/Test.elf.dir/src/PLL.c.obj	1a1e856d57d3a126
+413	935	1738671023116938000	CMakeFiles/Test.elf.dir/src/startup.c.obj	85ae1b550ce163ab
+684	1045	1738670542463268000	Test.elf	9622834b83cd8148
+0	259	1738663783169491699	CMakeFiles/flash	bb23cf813c1e372
+199	2797	1738671116020841000	build.ninja	cd102905756e8a9f
+185	2764	1738671116020841000	build.ninja	cd102905756e8a9f
+116	409	1738671117465872000	clean	ad90e366ad70d77b
+178	513	1738671119439718000	CMakeFiles/Test.elf.dir/src/PLL.c.obj	1a1e856d57d3a126
+144	655	1738671119394258000	CMakeFiles/Test.elf.dir/src/helloworld.c.obj	21733a5e7bbec6c
+308	727	1738671119565087000	CMakeFiles/Test.elf.dir/src/startup.c.obj	85ae1b550ce163ab
+352	758	1738671119610300000	CMakeFiles/Test.elf.dir/src/SysTick.c.obj	d30bf9a93f5fc226
+568	1150	1738671119828588000	CMakeFiles/Test.elf.dir/src/open_interface.c.obj	7e3b8e65cddc67f1
