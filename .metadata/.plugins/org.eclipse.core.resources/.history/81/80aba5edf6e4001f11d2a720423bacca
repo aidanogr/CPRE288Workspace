@@ -13,6 +13,7 @@
 
 
 
+//*test for git commit
 int main() {
     oi_t *sensor_data = oi_alloc(); // do this only once at start of main()
     oi_init(sensor_data); // do this only once at start of main()
@@ -24,7 +25,7 @@ int main() {
 
 
     /*double distance_moved = */
-    move_forward(sensor_data, 500);
+   // move_forward(sensor_data, 500);
    // turn_right(sensor_data, 90);
    // move_forward(sensor_data, 500);
    // turn_left(sensor_data, 90);

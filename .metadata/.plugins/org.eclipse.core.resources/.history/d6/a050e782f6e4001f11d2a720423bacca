@@ -12,7 +12,7 @@
 #include "movement.h"
 //const double MOVE_FORWARD_SPEED = 350.0;
 //const double MAXIMUM_ROTATIONAL_VELOCITY = 350.0;
-#define MOVE_FORWARD_SPEED 300
+#define MOVE_FORWARD_SPEED 150
 #define MAXIMUM_ROTATIONAL_VELOCITY 15
 #define MINIMUM_ROTATIONAL_VELOCITY 10
 
@@ -29,7 +29,7 @@ double move_forward(oi_t* sensor_data, double distance_mm) {
 
     oi_update(sensor_data);
     double sum = 0; // distance member in oi_t struct is type double
-
+    double initial_distance = sensor_data->distance;
     oi_setWheels(MOVE_FORWARD_SPEED, MOVE_FORWARD_SPEED); //move forward at full speed
 
     while (sum < distance_mm-20) {
@@ -57,7 +57,7 @@ double move_forward(oi_t* sensor_data, double distance_mm) {
         }
         sensor_data->distance = tempDistance;
 
-        sum += absoluteVal(sensor_data -> distance); // use -> notation since pointer
+        sum += absoluteVal(sensor_data -> distance - initial_distance); // use -> notation since pointer
 
     }
     oi_setWheels(0,0); //stop
