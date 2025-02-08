@@ -25,6 +25,37 @@ double absoluteVal(double val) {
     return val;
 }
 
+
+//Dont ask why but it works...
+double move_forward1(oi_t* sensor_data, double distance_mm) {
+      oi_update(sensor_data);
+      uint16_t initial_time = timer_getMillis();
+      uint16_t total_time = 0;
+      double velocity = 0;
+      double distance_traveled = 0;
+
+      while(distance_mm > distance_traveled) {
+
+          oi_update(sensor_data);
+          total_time = timer_getMillis() - initial_time;
+          double t1 = (-16.0/9.0)*((MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED)/(distance_mm*distance_mm));
+          //intermediate checks because this is computationally expensive
+          if(distance_mm < distance_traveled) {
+              break;
+          }
+          double t2 = (total_time/1000.0-(3.0/4.0)*(distance_mm/MOVE_FORWARD_SPEED))*(total_time/1000.0-(3.0/4.0)*(distance_mm/MOVE_FORWARD_SPEED));
+          if(distance_mm < distance_traveled) {
+              break;
+          }
+          velocity = MOVE_FORWARD_SPEED + t1*t2;
+
+          distance_traveled += sensor_data->distance;
+          oi_setWheels(velocity, velocity);
+      }
+      oi_setWheels(0, 0);
+      return distance_traveled;
+}
+
 double move_forward(oi_t* sensor_data, double distance_mm) {
 
     oi_update(sensor_data);

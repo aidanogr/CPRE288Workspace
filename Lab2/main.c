@@ -5,6 +5,7 @@
  *      Author: ahogrady
  *
  *      LAST COMMIT: FIXED INITIAL DISTANCE IN "move_forward(...)"
+ *                   ADDED "move_forward1(...)" FOR EASE-IN-OUT ALGORITHM
  */
 
 #include <stdio.h>
@@ -22,9 +23,15 @@ int main() {
 
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
 
+   // char * firmwareV = oi_checkFirmware();
+
+    //lcd_printf("test");
 
     /*double distance_moved = */
-    move_forward(sensor_data, 500);
+    lcd_printf("%.2f", move_forward(sensor_data, 2000));
+   // double distanceTraveled = move_forward(sensor_data, 500);
+   // lcd_printf("%.5f", distanceTraveled);
+
    // turn_right(sensor_data, 90);
    // move_forward(sensor_data, 500);
    // turn_left(sensor_data, 90);
