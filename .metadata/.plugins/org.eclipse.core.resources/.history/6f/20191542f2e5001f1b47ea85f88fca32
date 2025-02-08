@@ -12,7 +12,7 @@
 #include "movement.h"
 //const double MOVE_FORWARD_SPEED = 350.0;
 //const double MAXIMUM_ROTATIONAL_VELOCITY = 350.0;
-#define MOVE_FORWARD_SPEED 350
+#define MOVE_FORWARD_SPEED 300
 #define MAXIMUM_ROTATIONAL_VELOCITY 15
 #define MINIMUM_ROTATIONAL_VELOCITY 10
 
@@ -34,17 +34,19 @@ double move_forward1(oi_t* sensor_data, double distance_mm) {
       double velocity = 0;
       double distance_traveled = 0;
 
-      double t1 = (-16.0/9.0)*((MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED)/(distance_mm*distance_mm));
-      double three_fourths_dist_over_moveSpeed = (0.75)*(distance_mm/MOVE_FORWARD_SPEED);
-      double t2 = 0;
       while(distance_mm > distance_traveled) {
 
           oi_update(sensor_data);
           total_time = timer_getMillis() - initial_time;
-
-          t2 = (total_time/1000.0-three_fourths_dist_over_moveSpeed);
-          t2 *= t2;
-
+          double t1 = (-16.0/9.0)*((MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED*MOVE_FORWARD_SPEED)/(distance_mm*distance_mm));
+          //intermediate checks because this is computationally expensive
+          if(distance_mm < distance_traveled) {
+              break;
+          }
+          double t2 = (total_time/1000.0-(3.0/4.0)*(distance_mm/MOVE_FORWARD_SPEED))*(total_time/1000.0-(3.0/4.0)*(distance_mm/MOVE_FORWARD_SPEED));
+          if(distance_mm < distance_traveled) {
+              break;
+          }
           velocity = MOVE_FORWARD_SPEED + t1*t2;
 
           distance_traveled += sensor_data->distance;
