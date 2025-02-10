@@ -1,0 +1,2 @@
+--fixed clone script to create a backup incase clone is selected instead of commit. (clone will overwrite the workspace with the last instance of GitHub workspace)
+	if overwritten on accident, look for workspaceBackup folder in C:Users\(User)\ 

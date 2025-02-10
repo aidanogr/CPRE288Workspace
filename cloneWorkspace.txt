@@ -1,0 +1,9 @@
+C:
+cd \Users\<ISU ID HERE>
+git clone https://<GITHUB USERNAME HERE>:<PERSONAL ACCESS KEY HERE>@github.com/aidanogr/CPRE288Workspace.git .\temp
+xcopy workspace_v12 workspaceBackup /E /C /s /h /y
+D
+rmdir workspace_v12 /q /s
+ren temp workspace_v12
+start "" "\ti\ccs1271\ccs\eclipse\ccstudio.exe"
+exit

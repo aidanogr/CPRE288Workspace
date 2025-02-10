@@ -1,0 +1,6 @@
+C:
+cd \Users\<ISU ID HERE>\workspace_v12
+git init
+git add .
+git commit -m "auto commit"
+git push
