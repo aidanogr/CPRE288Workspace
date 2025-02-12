@@ -5,7 +5,7 @@
  *      Author: ahogrady
  */
 
-//som
+//some change...
 #include "open_interface.h"
 #include <stdint.h>
 #include "Timer.h"
