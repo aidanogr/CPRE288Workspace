@@ -5,11 +5,12 @@
  *      Author: ahogrady
  */
 
-//som
 #include "open_interface.h"
 #include <stdint.h>
 #include "Timer.h"
 #include "movement.h"
+
+
 //const double MOVE_FORWARD_SPEED = 350.0;
 //const double MAXIMUM_ROTATIONAL_VELOCITY = 350.0;
 #define MOVE_FORWARD_SPEED 350

@@ -23,28 +23,8 @@ int main() {
 
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
 
-   // char * firmwareV = oi_checkFirmware();
-
-    //lcd_printf("test");
-
-    /*double distance_moved = */
     lcd_printf("%.2f", move_forward1(sensor_data, 2000));
-   // double distanceTraveled = move_forward(sensor_data, 500);
-   // lcd_printf("%.5f", distanceTraveled);
 
-   // turn_right(sensor_data, 90);
-   // move_forward(sensor_data, 500);
-   // turn_left(sensor_data, 90);
-  //  move_forward(sensor_data, 500);
-   // turn_left(sensor_data, 90);
-   // move_forward(sensor_data, 500);
-   // turn_right(sensor_data, 90);
-  //  lcd_printf("Turned right");
-
-    //turn_right(sensor_data, 360);
-    //move_forward(sensor_data, 2000);
-
-   // turn_left(sensor_data, 360);
     oi_free(sensor_data); // do this once at end of main()
 
 }
