@@ -8,7 +8,27 @@
 #ifndef SCAN_H_
 #define SCAN_H_
 
-#define
+#include "uart.h"
+#include "cyBot_Scan.h"
+#include "string.h"
+#include "lcd.h"
+#include "movement.h"
+
+struct obj_t;
+
+typedef struct {
+    struct obj_t *next;
+    int index;
+    int angle;
+    double dist;
+    int angular_width;
+} obj_t;
+
+
+
+double *scan_range(int min_angle, int max_angle);
+obj_t *parse_scan_data(double *data);
+
 
 
 
