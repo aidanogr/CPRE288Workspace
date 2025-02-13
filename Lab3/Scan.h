@@ -25,8 +25,12 @@ typedef struct {
 } obj_t;
 
 
-
+//data[0] => initial angle
+//data[1] => number of data points
+//data[2:] => data points
 double *scan_range(int min_angle, int max_angle);
+
+
 obj_t *parse_scan_data(double *data);
 
 

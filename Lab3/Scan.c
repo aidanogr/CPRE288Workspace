@@ -9,9 +9,17 @@
 #define SIG_DELTA_ 5
 
 #include "Scan.h"
+#include "Timer.h"
 
+//Servo tries to read values before getting to 0, causing noise
+//function gives servo time to start at initial angle before full sweep
+void init_scan(int initial_angle, cyBOT_Scan_t *scan_data) {
+    cyBOT_Scan(0, scan_data);
+    double init_time = timer_getMillis();
+    while(timer_getMillis() - init_time < 2000) {}
+}
 
-
+//returns array of distances
 double *scan_range(int min_angle, int max_angle) {
     cyBOT_Scan_t *scan_data = calloc(1, sizeof(cyBOT_Scan_t));
     double *data = (double *) malloc(((max_angle - min_angle) / SCAN_RESOLUTION_ + 3) * sizeof(double));
@@ -21,17 +29,20 @@ double *scan_range(int min_angle, int max_angle) {
     cyBot_sendString("Degrees    ", 11);
     cyBot_sendString("PING Distance (cm)\n", 19);
 
+    //Servo tries to read values before set at 0, causing noise.
+    init_scan(0, scan_data);
+
     int i = 2;
     while(min_angle <= max_angle) {
         cyBOT_Scan(min_angle, scan_data);
 
         data[i] = scan_data->sound_dist;
 
-//        char msg[100];
+        char msg[100];
 //
-//        sprintf(msg, "%d %lf\n\r", min_angle, scan_data->sound_dist);
+        sprintf(msg, "%d %lf\n\r", min_angle, scan_data->sound_dist);
 //
-//        cyBot_sendString(msg, strlen(msg));
+        cyBot_sendString(msg, strlen(msg));
 
 
         min_angle += SCAN_RESOLUTION_;
@@ -47,17 +58,19 @@ obj_t *parse_scan_data(double *data) {
     int min_angle = (int) data[0];
     int len = (int) data[1];
     int obj_count = 0;
-
+    int i;
     float *delta = (float *) malloc((len - 1) * sizeof(float));
 
-    int i;
+
     // calculates changes in distance
     for(i = 0; i < len - 1; i++) {
         delta[i] = absoluteVal(data[i + 2] - data[i + 3]);
     }
 
+
+
+    // debug prints angle, distance, delta_difference
     cyBot_sendString("\r\n\n\n", 4);
-//
     for(i = 0; i < len - 1; i++) {
         char msg[100];
 
@@ -65,12 +78,13 @@ obj_t *parse_scan_data(double *data) {
 
         cyBot_sendString(msg, strlen(msg));
     }
-
     cyBot_sendString("\r\n\n\n", 4);
+
+
 
     // filters long-distance noise
     for(i = 0; i < len - 1; i++) {
-        if(delta[i] > SIG_DELTA_ && data[i + 2] > 175 && data[i + 3] > 175) { delta[i] = 0; }
+        if(delta[i] > SIG_DELTA_ && (data[i + 2] > 150 && data[i + 3] > 150) ) { delta[i] = 0; }
     }
 
 
@@ -84,7 +98,7 @@ obj_t *parse_scan_data(double *data) {
         if(delta[i] > SIG_DELTA_) {
             curr->angular_width = _i_width * SCAN_RESOLUTION_;
             curr->angle = _start_angle + curr->angular_width / 2;
-
+            curr->dist = data[i+2];
             curr->next = calloc(1, sizeof(obj_t));
 
 

@@ -29,17 +29,28 @@ int main() {
     cyBot_uart_init();
     cyBOT_init_Scan(0b011);
 
+    //cyBOT_SERVRO_cal_t cal = cyBOT_SERVO_cal();
+    right_calibration_value = 274750;
+    left_calibration_value = 1230250;
+
+    move_forward(sensor_data, 5);
+
     double *data = scan_range(0, 180);
 
-    int angle = (parse_scan_data(data)->angle) - 90;
+    obj_t * parseData = parse_scan_data(data);
+    int angle = (parseData->angle);
 
+    lcd_printf("%d, %.2f", angle, parseData->dist);
 
-
-    if(angle < 0) {
-        turn_right(sensor_data, absoluteVal(angle));
+    if(angle > 90) {
+        turn_left(sensor_data, angle-90);
     } else {
-        turn_left(sensor_data, angle);
+        turn_right(sensor_data, 90-angle);
     }
+
+    move_forward(sensor_data, 10*parseData->dist);
+
+
 
 
 
@@ -54,7 +65,7 @@ int main() {
 //    }
 
 
-
+    oi_free(sensor_data);
 }
 
 

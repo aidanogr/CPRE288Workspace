@@ -23,7 +23,7 @@ int main() {
 
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
 
-    lcd_printf("%.2f", move_forward1(sensor_data, 2000));
+    lcd_printf("%.2f", move_forward(sensor_data, 400));
 
     oi_free(sensor_data); // do this once at end of main()
 
