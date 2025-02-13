@@ -115,7 +115,7 @@ obj_t *parse_scan_data(double *data) {
     curr = head;
 
     while(curr) {
-        if(data[(curr->angle - min_angle) / SCAN_RESOLUTION_ + 2] > 200 || curr->angular_width < 3) {
+        if(data[(curr->angle - min_angle) / SCAN_RESOLUTION_ + 2] > 175 || curr->angular_width < 3) {
             curr->index = -1;
         }
 
@@ -168,6 +168,7 @@ obj_t *parse_scan_data(double *data) {
 
 
     free(delta);
+    free(data);
 
     char msg[100];
 

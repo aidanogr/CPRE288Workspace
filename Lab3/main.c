@@ -30,10 +30,10 @@ int main() {
     cyBOT_init_Scan(0b011);
 
     //cyBOT_SERVRO_cal_t cal = cyBOT_SERVO_cal();
-    right_calibration_value = 274750;
-    left_calibration_value = 1230250;
+    right_calibration_value = 232750;
+    left_calibration_value = 1198750;
 
-    move_forward(sensor_data, 5);
+    //move_forward(sensor_data, 5);
 
     double *data = scan_range(0, 180);
 
@@ -48,7 +48,7 @@ int main() {
         turn_right(sensor_data, 90-angle);
     }
 
-    move_forward(sensor_data, 10*parseData->dist);
+    move_forward(sensor_data, 10*parseData->dist - 160);
 
 
 
