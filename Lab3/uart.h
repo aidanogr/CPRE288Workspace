@@ -9,6 +9,7 @@
 #define UART_H_
 
 #include "cyBot_uart.h"
+#include "string.h"
 
 void cyBot_sendString(char* data, int length);
 

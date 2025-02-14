@@ -10,10 +10,12 @@
 
 
 void cyBot_sendString(char* data, int length) {
-    int c = 0;
-    while(c < length && data[c]) {
+    if(length < 0) { length = strlen(data); }
+
+    int c;
+
+    for(c = 0; c < length && data[c]; c++) {
         cyBot_sendByte(data[c]);
-        c++;
     }
 }
 

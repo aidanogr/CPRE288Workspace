@@ -15,6 +15,7 @@
 #include "cyBot_Scan.h"
 #include "uart.h"
 #include "Scan.h"
+#include "sleep.h"
 
 
 
@@ -29,11 +30,13 @@ int main() {
     cyBot_uart_init();
     cyBOT_init_Scan(0b011);
 
-    //cyBOT_SERVRO_cal_t cal = cyBOT_SERVO_cal();
-    right_calibration_value = 232750;
-    left_calibration_value = 1198750;
+    //cyBOT_SERVO_cal();
+    right_calibration_value = 280000;
+    left_calibration_value = 1267000;
 
     //move_forward(sensor_data, 5);
+
+    //turn_right(sensor_data, 5);
 
     double *data = scan_range(0, 180);
 
@@ -41,10 +44,15 @@ int main() {
     int angle = (parseData->angle);
 
     lcd_printf("%d, %.2f", angle, parseData->dist);
-
+    ///turn_left(sensor_data, 10);
     if(angle > 90) {
+        sleep_millis(2000);
+        lcd_printf("%d", angle - 90);
         turn_left(sensor_data, angle-90);
     } else {
+        sleep_millis(2000);
+        lcd_printf("%d", 90 - angle);
+
         turn_right(sensor_data, 90-angle);
     }
 

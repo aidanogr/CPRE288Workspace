@@ -15,14 +15,15 @@
 #include "movement.h"
 
 struct obj_t;
+typedef struct obj_t obj_t;
 
-typedef struct {
-    struct obj_t *next;
+struct obj_t {
+    obj_t *next;
     int index;
     int angle;
     double dist;
     int angular_width;
-} obj_t;
+};
 
 
 //data[0] => initial angle

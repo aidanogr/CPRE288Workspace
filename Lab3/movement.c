@@ -16,7 +16,7 @@
 #define MOVE_FORWARD_SPEED 350
 #define MAXIMUM_ROTATIONAL_VELOCITY 15
 #define MINIMUM_ROTATIONAL_VELOCITY 10
-#define ANGLE_OFFSET 5
+#define ANGLE_OFFSET 2
 
 
 double absoluteVal(double val) {
