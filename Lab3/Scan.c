@@ -118,14 +118,13 @@ obj_t *parse_scan_data(double *data) {
         }
     }
 
-    cyBot_sendString("1\r\n", -1);
 
     curr->angular_width = _i_width * SCAN_RESOLUTION_;
     curr->angle = _start_angle + curr->angular_width / 2;
     curr->dist = data[(curr->angle - min_angle) / SCAN_RESOLUTION_ + 2];
     curr->index = i;
 
-    cyBot_sendString("2\r\n", -1);
+
 
     // filter far objects and noise
     curr = head;
@@ -156,9 +155,7 @@ obj_t *parse_scan_data(double *data) {
 //        if(_bad_obj) { free(_bad_obj); }
 //    }
 
-    cyBot_sendString("3\r\n", -1);
-
-
+    cyBot_sendString("\r\n\n\n", 4);
 
     curr = head;
 
@@ -175,7 +172,7 @@ obj_t *parse_scan_data(double *data) {
         curr = curr->next;
     }
 
-
+    cyBot_sendString("\r\n\n\n", 4);
 
 
     // pick narrowest angular width
@@ -184,7 +181,6 @@ obj_t *parse_scan_data(double *data) {
     curr = curr->next;
 
     while(curr) {
-        cyBot_sendString("4\r\n", -1);
         if(curr->index >= 0 && (curr->angular_width < narrowest->angular_width || narrowest->index < 0)) {
             free(narrowest);
             narrowest = curr;
@@ -196,8 +192,6 @@ obj_t *parse_scan_data(double *data) {
             free(_o);
         }
     }
-
-    cyBot_sendString("5\r\n", -1);
 
 
     free(delta);

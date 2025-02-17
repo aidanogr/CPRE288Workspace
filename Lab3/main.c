@@ -31,8 +31,8 @@ int main() {
     cyBOT_init_Scan(0b011);
 
     //cyBOT_SERVO_cal();
-    right_calibration_value = 316750;
-    left_calibration_value = 1314250;
+    right_calibration_value = 295750;
+    left_calibration_value = 1293250;
 
     //move_forward(sensor_data, 5);
 
@@ -41,7 +41,7 @@ int main() {
     double *data = scan_range(0, 180);
 
     obj_t * parseData = parse_scan_data(data);
-    int angle = parseData->angle > 5 ? parseData->angle - 5 : parseData->angle;
+    int angle = parseData->angle;
 
     lcd_printf("%d, %.2f", angle, parseData->dist);
     ///turn_left(sensor_data, 10);
