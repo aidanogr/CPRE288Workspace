@@ -7,7 +7,7 @@
 
 #define SCAN_RESOLUTION_ 2
 #define SIG_DELTA_ 5
-#define SIG_DIST_ 150
+#define SIG_DIST_ 125
 #define SIG_ANGULAR_WIDTH_ 5
 
 #include "Scan.h"
@@ -29,8 +29,8 @@ double *scan_range(int min_angle, int max_angle) {
     data[0] = min_angle;
     data[1] = (max_angle - min_angle) / SCAN_RESOLUTION_ + 1;
 
-    cyBot_sendString("Degrees    ", 11);
-    cyBot_sendString("PING Distance (cm)\r\n", 19);
+    cyBot_sendString("Degrees    ", -1);
+    cyBot_sendString("PING Distance (cm)\r\n\n", -1);
 
     //Servo tries to read values before set at 0, causing noise.
     init_scan(0, scan_data);
@@ -45,7 +45,7 @@ double *scan_range(int min_angle, int max_angle) {
 //
         sprintf(msg, "%d %lf\r\n", min_angle, scan_data->sound_dist);
 //
-        cyBot_sendString(msg, strlen(msg));
+        cyBot_sendString(msg, -1);
 
 
         min_angle += SCAN_RESOLUTION_;
@@ -95,6 +95,7 @@ obj_t *parse_scan_data(double *data) {
     obj_t *curr = head;
     int _i_width = 0;
     int _start_angle = min_angle;
+    int _index = 0;
 
     for(i = 0; i < len - 1; i++, _i_width++) {
         if(delta[i] > SIG_DELTA_) {
@@ -102,13 +103,13 @@ obj_t *parse_scan_data(double *data) {
             curr->angle = _start_angle + curr->angular_width / 2;
             curr->dist = data[(curr->angle - min_angle) / SCAN_RESOLUTION_ + 2];
             curr->next = calloc(1, sizeof(obj_t));
-            curr->index = i;
+            curr->index = ++_index;
 
             char msg[100];
 
             sprintf(msg, "Created object with angle %d, width %d, and distance %lf\r\n", curr->angle, curr->angular_width, curr->dist);
 
-            cyBot_sendString(msg, strlen(msg));
+            cyBot_sendString(msg, -1);
 
 
             _i_width = 0;
@@ -166,10 +167,11 @@ obj_t *parse_scan_data(double *data) {
         if(curr->index >= 0) {
             char msg[100];
 
-            sprintf(msg, "Angle: %d, width: %d, dist: %lf\r\n", curr->angle, curr->angular_width, curr->dist);
+            sprintf(msg, "Object #: %d, Angle: %d, Distance: %lf, (Radial) width: %d\r\n", curr->index, curr->angle, curr->dist, curr->angular_width);
 
-            cyBot_sendString(msg, strlen(msg));
+            cyBot_sendString(msg, -1);
         }
+
         curr = curr->next;
     }
 
@@ -183,7 +185,7 @@ obj_t *parse_scan_data(double *data) {
 
     while(curr) {
         cyBot_sendString("4\r\n", -1);
-        if(curr->index >= 0 && curr->angular_width < narrowest->angular_width) {
+        if(curr->index >= 0 && (curr->angular_width < narrowest->angular_width || narrowest->index < 0)) {
             free(narrowest);
             narrowest = curr;
             curr = curr->next;
@@ -205,7 +207,7 @@ obj_t *parse_scan_data(double *data) {
 
     sprintf(msg, "Angle: %d, width: %d\r\n", narrowest->angle, narrowest->angular_width);
 
-    cyBot_sendString(msg, strlen(msg));
+    cyBot_sendString(msg, -1);
 
     return narrowest;
 }

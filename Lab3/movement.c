@@ -16,7 +16,7 @@
 #define MOVE_FORWARD_SPEED 350
 #define MAXIMUM_ROTATIONAL_VELOCITY 15
 #define MINIMUM_ROTATIONAL_VELOCITY 10
-#define ANGLE_OFFSET 2
+#define ANGLE_OFFSET 5
 
 
 double absoluteVal(double val) {
@@ -112,10 +112,12 @@ void move_backwards(oi_t* sensor_data, double distance_mm) {
 
 void turn_left(oi_t* sensor_data, double degrees){
 
+    lcd_printf("l1");
+
     oi_update(sensor_data);
     double sum = 0;
 
-
+    lcd_printf("l2");
 
     oi_setWheels(MAXIMUM_ROTATIONAL_VELOCITY, -MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
@@ -128,11 +130,13 @@ void turn_left(oi_t* sensor_data, double degrees){
 }
 
 void turn_right(oi_t* sensor_data, double degrees){
+    lcd_printf("r1");
+
     oi_update(sensor_data);
     double sum = 0;
 
 
-
+    lcd_printf("r2");
 
     oi_setWheels(-MAXIMUM_ROTATIONAL_VELOCITY, MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
