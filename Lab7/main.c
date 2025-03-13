@@ -35,22 +35,65 @@ int main() {
     cyBOT_init_Scan(0b111);
 
     //cyBOT_SERVO_cal();
-    right_calibration_value = 269500;
-    left_calibration_value = 1204000;
+    right_calibration_value = 232750;
+    left_calibration_value = 1183000;
 
 
 
 
     int num_objects = 0;
+    int i;
     obj_t object_array[10];
 
-    scan_range(45, 135, object_array, &num_objects);
 
 
-    print_objects(object_array, num_objects);
+    //scan_range(45, 135, object_array, &num_objects);
 
 
+    //print_objects(object_array, num_objects);
+    int round = 1;
+    int min_angle = 0;
+    int max_angle = 180;
 
+
+    while(1) {
+        if(round > 1) {
+            min_angle = 45;
+            max_angle = 135;
+        }
+
+        scan_range(min_angle, max_angle, object_array, &num_objects);
+
+        if(!num_objects) {
+            lcd_printf("We are NOT finding this mf\n");
+
+            break;
+        }
+
+        int skinniest = 0;
+
+        for(i = 1; i < num_objects; i++) {
+            if(object_array[i].width < object_array[skinniest].width) { skinniest = i; }
+        }
+
+        // found skinniest, turn to it
+        cyBOT_Scan((object_array[skinniest].start_angle + object_array[skinniest].end_angle) / 2, NULL);
+
+        int angle = (object_array[skinniest].start_angle + object_array[skinniest].end_angle) / 2;
+
+        lcd_printf("%d\n", angle);
+
+        if(angle < 90) {
+            turn_right(sensor_data, 90 - angle - 3);
+        } else {
+            turn_left(sensor_data, angle - 90 - 3);
+        }
+
+
+        if(move_to_obj(sensor_data, object_array[skinniest].distance * 10 - 170) >= object_array[skinniest].distance * 10 - 170) { break; }
+
+        round++;
+    }
 
 
 

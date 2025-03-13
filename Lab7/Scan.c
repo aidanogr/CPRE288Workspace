@@ -7,7 +7,7 @@
 
 #include "Scan.h"
 
-
+#define SIG_DIST 835
 
 
 
@@ -33,14 +33,14 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
 
             if(!isDetecting) {
-                if(sum/3 > 575) {
+                if(sum/3 > SIG_DIST) {
                     isDetecting = 1;
                     object_array[num_objects].start_angle = min_angle;
                 }
 
             }
             else {
-                if(sum/3 < 575) {
+                if(sum/3 < SIG_DIST) {
                     isDetecting = 0;
                     object_array[num_objects].end_angle = min_angle;
                     num_objects++;

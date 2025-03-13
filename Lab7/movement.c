@@ -5,10 +5,9 @@
  *      Author: ahogrady
  */
 
-#include "open_interface.h"
-#include <stdint.h>
-#include "Timer.h"
+
 #include "movement.h"
+
 
 
 //const double MOVE_FORWARD_SPEED = 350.0;
@@ -19,12 +18,112 @@
 #define ANGLE_OFFSET 5
 
 
+char end_movement = 0;
+
+
+void avoid_bump(oi_t *sensor, uint32_t right, uint32_t left);
+
+
+
 double absoluteVal(double val) {
     if(val < 0) {
         return val*-1;
     }
     return val;
 }
+
+
+double move_to_obj(oi_t *sensor, double dist) { // dist in mm
+    if(end_movement) { return 0; }
+
+
+    int sign = 1;
+    if(dist < 0) {
+        sign = -1;
+        dist *= -1;
+    }
+
+
+
+    oi_update(sensor);
+
+    double sum = 0;
+
+    oi_setWheels(sign * MOVE_FORWARD_SPEED, sign * MOVE_FORWARD_SPEED);
+
+    while(sum < dist && !end_movement) {
+        oi_update(sensor);
+
+        sum += sign * sensor->distance;
+
+        if(sensor->bumpRight == 1 || sensor->bumpLeft == 1) {
+            oi_setWheels(0, 0);
+
+            avoid_bump(sensor, sensor->bumpRight, sensor->bumpLeft);
+
+            return sum;
+        }
+    }
+
+    oi_setWheels(0, 0);
+
+    return sum;
+}
+
+
+
+
+
+void avoid_bump(oi_t *sensor, uint32_t right, uint32_t left) {
+    static int attendance = 0;
+
+
+    attendance++;
+
+
+    move_to_obj(sensor, -50);   // move back
+
+    if(right == 1) {
+        turn_left(sensor, 90);
+
+    } else {
+        turn_right(sensor, 90);
+    }
+
+    move_to_obj(sensor, 75);
+
+    if(right == 1) {
+        turn_right(sensor, 90);
+
+    } else {
+        turn_left(sensor, 90);
+    }
+
+    move_to_obj(sensor, 50);
+
+
+
+
+    end_movement = 1;
+    attendance--;
+
+    if(!attendance) {   // highest on stack
+        end_movement = 0;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //Dont ask why but it works...
@@ -62,9 +161,11 @@ double move_forward(oi_t* sensor_data, double distance_mm) {
 
     oi_setWheels(MOVE_FORWARD_SPEED, MOVE_FORWARD_SPEED); //move forward at full speed
 
-    while (sum < distance_mm-20) {
+    while (sum < distance_mm) {
         oi_update(sensor_data);
+
         double tempDistance = sensor_data->distance;
+
         if(sensor_data->bumpRight == 1) {
 
             move_backwards(sensor_data, 150);
@@ -85,9 +186,8 @@ double move_forward(oi_t* sensor_data, double distance_mm) {
             oi_setWheels(MOVE_FORWARD_SPEED, MOVE_FORWARD_SPEED);
 
         }
-        sensor_data->distance = tempDistance;
 
-        sum += absoluteVal(sensor_data -> distance); // use -> notation since pointer
+
 
     }
     oi_setWheels(0,0); //stop
@@ -111,7 +211,7 @@ void move_backwards(oi_t* sensor_data, double distance_mm) {
 }
 
 void turn_left(oi_t* sensor_data, double degrees){
-
+    if(end_movement) { return; }
     lcd_printf("l1");
 
     oi_update(sensor_data);
@@ -130,6 +230,7 @@ void turn_left(oi_t* sensor_data, double degrees){
 }
 
 void turn_right(oi_t* sensor_data, double degrees){
+    if(end_movement) { return; }
     lcd_printf("r1");
 
     oi_update(sensor_data);
