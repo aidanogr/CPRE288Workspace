@@ -35,8 +35,8 @@ int main() {
     cyBOT_init_Scan(0b111);
 
     //cyBOT_SERVO_cal();
-    right_calibration_value = 232750;
-    left_calibration_value = 1183000;
+    right_calibration_value = 238000;
+    left_calibration_value = 1230250;
 
 
 
@@ -89,8 +89,14 @@ int main() {
             turn_left(sensor_data, angle - 90 - 3);
         }
 
+        int go_this_far = object_array[skinniest].distance * 10 - 190;
+        int went_this_far = move_to_obj(sensor_data, go_this_far);
 
-        if(move_to_obj(sensor_data, object_array[skinniest].distance * 10 - 170) >= object_array[skinniest].distance * 10 - 170) { break; }
+
+        if(went_this_far >= go_this_far) { break; }
+
+
+
 
         round++;
     }
