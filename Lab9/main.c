@@ -41,12 +41,16 @@ int main() {
     right_calibration_value = 238000;
     left_calibration_value = 1230250;
 
-    while(1) {
-        timer_waitMillis(1);
+    //while(1){
         ping_trigger();
 
-    }
+    //}
 
+    lcd_printf("");
+
+
+
+    return 0;
 }
 
 
