@@ -34,4 +34,6 @@ void TIMER3B_Handler(void);
  */
 float ping_getDistance (void);
 
+void ping_wait_response();
+
 #endif /* PING_H_ */

@@ -39,14 +39,15 @@ int main() {
 
     //cyBOT_SERVO_cal();
     right_calibration_value = 238000;
-    left_calibration_value = 1230250;
+    left_calibration_value = 1177750;
 
-    //while(1){
+    cyBOT_Scan(180, NULL);
+
+    while(1){
         ping_trigger();
-
-    //}
-
-    lcd_printf("");
+        ping_wait_response();
+        timer_waitMillis(1000);
+    }
 
 
 
