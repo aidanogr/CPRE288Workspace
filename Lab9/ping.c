@@ -34,7 +34,7 @@ void ping_init (void) {
     TIMER3_TBMR_R |= 0x0007;
     TIMER3_TBMR_R &= ~0x0010;
     TIMER3_CTL_R |= 0x0C00;
-    //TIMER3_TBPR_R |= 0xFF;
+    TIMER3_TBPR_R |= 0xFF;
     TIMER3_TBILR_R = 0xFFFF;
     TIMER3_IMR_R |= 0x0400;
     TIMER3_CTL_R |= 0x0100;
@@ -43,7 +43,7 @@ void ping_init (void) {
     NVIC_EN1_R |= 0b10000;
 
     IntRegister(INT_TIMER3B, TIMER3B_Handler);
-    IntMasterEnable();
+    //IntMasterEnable();
 
     GPIO_PORTB_DATA_R &= ~(0b1000);
 }
@@ -63,7 +63,7 @@ void ping_trigger (void) {
 
 
     GPIO_PORTB_AFSEL_R |= (0b1000);
-    TIMER3_TBV_R |= 0xFFFF;             // reset timer to reduce risk of overflow
+    TIMER3_TBV_R |= 0xFFFFFF;             // reset timer to reduce risk of overflow
     TIMER3_IMR_R |= (0b1111 << 8);
     TIMER3_CTL_R |= (0b100000000);
 }
@@ -82,11 +82,11 @@ void TIMER3B_Handler(void){
         TIMER3_ICR_R |= (1 << 10);
 
         if(g_state == LOW) {
-            g_start_time = TIMER3_TBR_R & 0xFFFF;
+            g_start_time = TIMER3_TBR_R & 0xFFFFFF;
             g_state = HIGH;
 
         } else if(g_state == HIGH) {
-            g_end_time = TIMER3_TBR_R & 0xFFFF;
+            g_end_time = TIMER3_TBR_R & 0xFFFFFF;
             g_state = DONE;
 
         } else {
