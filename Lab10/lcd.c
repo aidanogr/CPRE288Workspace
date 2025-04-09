@@ -113,7 +113,6 @@ void lcd_init(void)
 
 	lcd_clear();
 	timer_waitMillis(1);
-
 }
 
 ///Send Char to LCD

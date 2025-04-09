@@ -18,8 +18,6 @@ volatile uint32_t g_end_time = 0;
 volatile enum{LOW, HIGH, DONE} g_state = LOW; // State of ping echo pulse
 
 void ping_init (void) {
-
-
     SYSCTL_RCGCGPIO_R |= 0x2;
     while ((SYSCTL_PRGPIO_R & 0x2) ==0) {}
     GPIO_PORTB_DIR_R |= 0x08;
@@ -34,7 +32,7 @@ void ping_init (void) {
     TIMER3_TBMR_R |= 0x0007;
     TIMER3_TBMR_R &= ~0x0010;
     TIMER3_CTL_R |= 0x0C00;
-    //TIMER3_TBPR_R |= 0xFF;
+    TIMER3_TBPR_R |= 0xFF;
     TIMER3_TBILR_R = 0xFFFF;
     TIMER3_IMR_R |= 0x0400;
     TIMER3_CTL_R |= 0x0100;
@@ -43,7 +41,6 @@ void ping_init (void) {
     NVIC_EN1_R |= 0b10000;
 
     IntRegister(INT_TIMER3B, TIMER3B_Handler);
-    IntMasterEnable();
 
     GPIO_PORTB_DATA_R &= ~(0b1000);
 }
@@ -61,32 +58,23 @@ void ping_trigger (void) {
 
     GPIO_PORTB_DIR_R &= ~(0b1000);
 
-
     GPIO_PORTB_AFSEL_R |= (0b1000);
-    TIMER3_TBV_R |= 0xFFFF;             // reset timer to reduce risk of overflow
+    TIMER3_TBV_R |= 0xFFFFFF;             // reset timer to reduce risk of overflow
+    TIMER3_TBPR_R |= 0xFF;                // if code doesn't work it could be this line lol
     TIMER3_IMR_R |= (0b1111 << 8);
     TIMER3_CTL_R |= (0b100000000);
 }
 
 void TIMER3B_Handler(void){
-    // YOUR CODE HERE
-      // As needed, go back to review your interrupt handler code for the UART lab.
-      // What are the first lines of code in the ISR? Regardless of the device, interrupt handling
-      // includes checking the source of the interrupt and clearing the interrupt status bit.
-      // Checking the source: test the MIS bit in the MIS register (is the ISR executing
-      // because the input capture event happened and interrupts were enabled for that event?
-      // Clearing the interrupt: set the ICR bit (so that same event doesn't trigger another interrupt)
-      // The rest of the code in the ISR depends on actions needed when the event happens.
-
     if(TIMER3_MIS_R & (1 << 10)) {
         TIMER3_ICR_R |= (1 << 10);
 
         if(g_state == LOW) {
-            g_start_time = TIMER3_TBR_R & 0xFFFF;
+            g_start_time = TIMER3_TBR_R & 0xFFFFFF;
             g_state = HIGH;
 
         } else if(g_state == HIGH) {
-            g_end_time = TIMER3_TBR_R & 0xFFFF;
+            g_end_time = TIMER3_TBR_R & 0xFFFFFF;
             g_state = DONE;
 
         } else {

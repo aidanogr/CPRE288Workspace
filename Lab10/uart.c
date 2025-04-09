@@ -15,7 +15,7 @@ void cyBot_sendString(char* data, int length) {
     int c;
 
     for(c = 0; c < length && data[c]; c++) {
-        cyBot_sendByte(data[c]);
+        cyBot_sendByte(data[c]);                // didn't get copied properly, need to copy our own uart functions before final project
     }
 }
 

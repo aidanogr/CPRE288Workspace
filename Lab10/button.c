@@ -39,7 +39,6 @@ void button_init() {
 	 //    do not modify other PORTE enables
 	 GPIO_PORTE_DEN_R |= 0b11111111;
 
-
 	 initialized = 1;
 }
 

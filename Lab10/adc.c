@@ -19,24 +19,15 @@ void adc_init(void) {
     GPIO_PORTB_AMSEL_R |= 0b10000;   // 7) enable analog functionality on PB4
 
     ADC0_PC_R &= ~0xF;
-     ADC0_PC_R |= 0x1;             // 8) configure for 125K samples/sec
-     ADC0_SSPRI_R = 0x0123;        // 9) Sequencer 3 is highest priority
-     ADC0_ACTSS_R &= ~0x0008;      // 10) disable sample sequencer 3
-     ADC0_EMUX_R &= ~0xF000;       // 11) seq3 is software trigger
-     ADC0_SSMUX3_R &= ~0x000F;
-     ADC0_SSMUX3_R += 10;           // 12) set channel
-     ADC0_SSCTL3_R = 0x0006;       // 13) no TS0 D0, yes IE0 END0
-     ADC0_IM_R &= ~0x0008;         // 14) disable SS3 interrupts
-     ADC0_ACTSS_R |= 0x0008;       // 15) enable sample sequencer 3
-
-     /*
-    GPIO_PORTB_DEN_R &= ~0b10000;    // 6) disable digital I/O on PB4
-    GPIO_PORTB_AMSEL_R |= 0b10000;   // 7) enable analog functionality on PB4
- //   while((SYSCTL_PRADC_R&0x0001) != 0x0001){}; // good code, but not implemented in simulator
+    ADC0_PC_R |= 0x1;             // 8) configure for 125K samples/sec
     ADC0_SSPRI_R = 0x0123;        // 9) Sequencer 3 is highest priority
-    ADC0_ACTSS_R &= ~0b1000;
-    ADC0_EMUX_R &= ~0xF000; //?? */
-
+    ADC0_ACTSS_R &= ~0x0008;      // 10) disable sample sequencer 3
+    ADC0_EMUX_R &= ~0xF000;       // 11) seq3 is software trigger
+    ADC0_SSMUX3_R &= ~0x000F;
+    ADC0_SSMUX3_R += 10;           // 12) set channel
+    ADC0_SSCTL3_R = 0x0006;       // 13) no TS0 D0, yes IE0 END0
+    ADC0_IM_R &= ~0x0008;         // 14) disable SS3 interrupts
+    ADC0_ACTSS_R |= 0x0008;       // 15) enable sample sequencer 3
 }
 
 uint16_t adc_read(void) {

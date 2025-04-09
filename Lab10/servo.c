@@ -8,7 +8,7 @@
 
 
 int convert_degrees_to_pulse_width(int degrees) {
-    return ((degrees/180.0)/1000 + 0.001)*16000000;
+    return ((degrees/180.0 + 1)/1000)*16000000;
 }
 
 void initialize_servo() {
@@ -29,6 +29,7 @@ void initialize_servo() {
     TIMER1_TBMR_R |= 0x8;
     TIMER1_TBMR_R &= ~0x4;
     TIMER1_TBMR_R |= 0x2;
+    TIMER1_TBMATCHR_R = 320000;
 
     TIMER1_CTL_R |= 0x0100;
 }
@@ -38,12 +39,10 @@ void initialize_servo() {
 void servo_move_to(int pulse_width) {
     int cycles = pulse_width + 320000;
     
-    TIMER1_TBPR_R &= ~0xFF;
-    TIMER1_TBPR_R |= (cycles >> 16) & 0xFF;
     TIMER1_TBILR_R &= ~0xFFFF;
     TIMER1_TBILR_R |= (cycles) & 0xFFFF;
-    TIMER1_TBMATCHR_R = 320000;   
-
+    TIMER1_TBPR_R &= ~0xFF;
+    TIMER1_TBPR_R |= (cycles >> 16) & 0xFF;
 }
 
 

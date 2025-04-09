@@ -37,56 +37,61 @@ int main() {
     initialize_servo();
     cyBOT_init_Scan(0b111);
 
-    int pulse_width = 0.0015 * 16000000;
+
+
+
+
+
+
+
+    int pulse_width = 90;       // not really pulse width, its the amount of "degrees" but its not fr degrees so I didn't wanna call it degrees
     uint8_t button_pressed = 0;
     int dir = 1;
 
     while(1) {
         button_pressed = button_getButton();
-        lcd_printf("button %d\ndir: %d", button_pressed, dir);
+        lcd_printf("Button: %d\nDir: %d\nPulse (deg): %d", button_pressed, dir, pulse_width);
     
         switch(button_pressed) {
-
             case 0:
                 break;
             case 1:
-//                while(button_pressed == )
-                pulse_width += convert_degrees_to_pulse_width(1)*dir;
-                servo_move_to(pulse_width);
+                pulse_width += 1 * dir;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
                 break;
             case 2:
-                pulse_width += convert_degrees_to_pulse_width(5)*dir;
-                servo_move_to(pulse_width);
+                pulse_width += 5 * dir;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
                 break;
             case 3:
                 dir *= -1;
+                timer_waitMillis(500);
                 break;
             case 4:
                 if(dir == -1){ 
-                    pulse_width = convert_degrees_to_pulse_width(5);
-                    servo_move_to(pulse_width);
+                    pulse_width = 5;
+                } else {
+                    pulse_width = 175;
                 }
-                else {
-                    pulse_width = convert_degrees_to_pulse_width(175);
-                    servo_move_to(pulse_width);
-                }
-                break;
 
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                break;
         }
-        timer_waitMillis(500);
     }
 
-    servo_move_to(0.0015 * 16000000);
-    timer_waitMillis(2000);
-
-    servo_move_to(0.0011666 * 16000000);
-    timer_waitMillis(2000);
-
-    servo_move_to(0.0018333 * 16000000);
-    timer_waitMillis(2000);
-
-    servo_move_to(0.0015 * 16000000);
-    timer_waitMillis(2000);
+//    servo_move_to(0.0015 * 16000000);
+//    timer_waitMillis(2000);
+//
+//    servo_move_to(0.0011666 * 16000000);
+//    timer_waitMillis(2000);
+//
+//    servo_move_to(0.0018333 * 16000000);
+//    timer_waitMillis(2000);
+//
+//    servo_move_to(0.0015 * 16000000);
+//    timer_waitMillis(2000);
 
     return 0;
 }
