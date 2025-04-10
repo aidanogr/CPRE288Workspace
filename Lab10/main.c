@@ -39,13 +39,30 @@ int main() {
 
 
     //i have no idea what the hell im doing
-   // callibrate_servo();
-    servo_set_callibration(-100, 222);
-    timer_waitMillis(2000);
+    //callibrate_servo();
+    servo_set_callibration(-104, 199);
+//    timer_waitMillis(2000);
+//    servo_move_to(convert_degrees_to_pulse_width(0));
+//    timer_waitMillis(2000);
+//    servo_move_to(convert_degrees_to_pulse_width(360));
+//    timer_waitMillis(2000);
+
     servo_move_to(convert_degrees_to_pulse_width(0));
     timer_waitMillis(2000);
-    servo_move_to(convert_degrees_to_pulse_width(360));
+
+    servo_move_to(convert_degrees_to_pulse_width(45));
     timer_waitMillis(2000);
+
+    servo_move_to(convert_degrees_to_pulse_width(90));
+    timer_waitMillis(2000);
+
+    servo_move_to(convert_degrees_to_pulse_width(180));
+    timer_waitMillis(2000);
+
+    servo_move_to(convert_degrees_to_pulse_width(145));
+    timer_waitMillis(2000);
+
+
 
     int pulse_width = 90;       // not really pulse width, its the amount of "degrees" but its not fr degrees so I didn't wanna call it degrees //valid
     uint8_t button_pressed = 0;

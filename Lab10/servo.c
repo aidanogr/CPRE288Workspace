@@ -8,15 +8,19 @@
 
 int pulse_width_start = 0;
 int pulse_width_end = 1000;
+int isCallibrated = 0;
 
 int convert_degrees_to_pulse_width(int degrees) {
-    int ret = (((degrees+pulse_width_start)/180.0 + 1)/1000)*16000000;
-    if(degrees > pulse_width_end){
-        return (((pulse_width_start)/180.0 + 1)/1000)*16000000;
+    int converted_pulse;
+    if(isCallibrated == 1) {
+        //TODO what the fuck
+        converted_pulse = ( ((pulse_width_end/180.0 + 1)/1000)*16000000 - ((pulse_width_start/180.0 + 1)/1000)*16000000)*(degrees/180.0) + ((pulse_width_start/180.0 + 1)/1000)*16000000;
     }
-    else{
-        return ret;
+    else {
+        converted_pulse = (((degrees)/180.0 + 1)/1000)*16000000;
     }
+    return converted_pulse;
+
 }
 
 void initialize_servo() {
@@ -72,7 +76,7 @@ void callibrate_servo() {
                 timer_waitMillis(100);
                 break;
             case 2:
-                pulse_width -= 5;
+                pulse_width -= 2;
                 servo_move_to(convert_degrees_to_pulse_width(pulse_width));
                 timer_waitMillis(100);
                 break;
@@ -121,6 +125,7 @@ void callibrate_servo() {
 }
 
 void servo_set_callibration(int min, int max) {
+    isCallibrated = 1;
     pulse_width_end = max;
     pulse_width_start = min;
 
