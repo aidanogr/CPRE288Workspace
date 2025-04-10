@@ -6,9 +6,17 @@
  */
 #include "servo.h"
 
+int pulse_width_start = 0;
+int pulse_width_end = 1000;
 
 int convert_degrees_to_pulse_width(int degrees) {
-    return ((degrees/180.0 + 1)/1000)*16000000;
+    int ret = (((degrees+pulse_width_start)/180.0 + 1)/1000)*16000000;
+    if(degrees > pulse_width_end){
+        return (((pulse_width_start)/180.0 + 1)/1000)*16000000;
+    }
+    else{
+        return ret;
+    }
 }
 
 void initialize_servo() {
@@ -45,5 +53,76 @@ void servo_move_to(int pulse_width) {
     TIMER1_TBPR_R |= (cycles >> 16) & 0xFF;
 }
 
+void callibrate_servo() {
 
+    button_init(); //does nothing if already called
+
+    lcd_printf("Use buttons 1 and 2 to turn servo to zero degrees\nPress 4 when complete");
+    int button_pressed = 0;
+    int pulse_width = 90;
+    while(button_pressed != 4) {
+
+        button_pressed = button_getButton();
+        switch(button_pressed) {
+            case 0:
+                break;
+            case 1:
+                pulse_width += 2;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
+                break;
+            case 2:
+                pulse_width -= 5;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+
+    }
+    while(button_pressed==4){button_pressed=button_getButton(); timer_waitMillis(100);}
+    pulse_width_start = pulse_width;
+   // pulse_width = 90;
+    lcd_printf("Use buttons 1 and 2 to turn servo to 90 degrees\nPress 4 when complete");
+    while(button_pressed != 4) {
+
+        button_pressed = button_getButton();
+        switch(button_pressed) {
+            case 0:
+                break;
+            case 1:
+                pulse_width += 2;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
+                break;
+            case 2:
+                pulse_width -= 5;
+                servo_move_to(convert_degrees_to_pulse_width(pulse_width));
+                timer_waitMillis(100);
+                break;
+            case 3:
+                break;
+            case 4:
+                break;
+        }
+
+    }
+    while(button_pressed==4){button_pressed=button_getButton();timer_waitMillis(100);}
+    pulse_width_end = pulse_width;
+    lcd_printf("pulse_width_start = %d, end pulse_width_end = %d\n Set these values in main\n Press 4 to continue",
+               pulse_width_start, pulse_width_end);
+    while(button_pressed != 4) {}
+
+
+
+}
+
+void servo_set_callibration(int min, int max) {
+    pulse_width_end = max;
+    pulse_width_start = min;
+
+}
 

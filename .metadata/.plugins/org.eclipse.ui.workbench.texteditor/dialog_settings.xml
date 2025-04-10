@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="turn_"/>
+		<item key="selection" value=""/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="pulse_width_start"/>
 			<item value="turn_"/>
 			<item value="turn"/>
 			<item value="end_movement"/>
@@ -22,7 +23,6 @@
 			<item value="timer_startClock()"/>
 			<item value="start"/>
 			<item value="time"/>
-			<item value="angle"/>
 		</list>
 		<list key="replacehistory">
 		</list>

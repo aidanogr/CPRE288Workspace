@@ -38,13 +38,16 @@ int main() {
     cyBOT_init_Scan(0b111);
 
 
+    //i have no idea what the hell im doing
+   // callibrate_servo();
+    servo_set_callibration(-100, 222);
+    timer_waitMillis(2000);
+    servo_move_to(convert_degrees_to_pulse_width(0));
+    timer_waitMillis(2000);
+    servo_move_to(convert_degrees_to_pulse_width(360));
+    timer_waitMillis(2000);
 
-
-
-
-
-
-    int pulse_width = 90;       // not really pulse width, its the amount of "degrees" but its not fr degrees so I didn't wanna call it degrees
+    int pulse_width = 90;       // not really pulse width, its the amount of "degrees" but its not fr degrees so I didn't wanna call it degrees //valid
     uint8_t button_pressed = 0;
     int dir = 1;
 
