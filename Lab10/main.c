@@ -51,6 +51,7 @@ int main() {
     timer_waitMillis(2000);
 
     servo_move_to(convert_degrees_to_pulse_width(45));
+
     timer_waitMillis(2000);
 
     servo_move_to(convert_degrees_to_pulse_width(90));
@@ -67,7 +68,7 @@ int main() {
     int pulse_width = 90;       // not really pulse width, its the amount of "degrees" but its not fr degrees so I didn't wanna call it degrees //valid
     uint8_t button_pressed = 0;
     int dir = 1;
-
+/*
     while(1) {
         button_pressed = button_getButton();
         lcd_printf("Button: %d\nDir: %d\nPulse (deg): %d", button_pressed, dir, pulse_width);
@@ -112,7 +113,7 @@ int main() {
 //
 //    servo_move_to(0.0015 * 16000000);
 //    timer_waitMillis(2000);
-
+*/
     return 0;
 }
 

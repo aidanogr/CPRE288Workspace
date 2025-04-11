@@ -13,7 +13,7 @@ int isCallibrated = 0;
 int convert_degrees_to_pulse_width(int degrees) {
     int converted_pulse;
     if(isCallibrated == 1) {
-        //TODO what the fuck
+        //TODO what the fuck?
         converted_pulse = ( ((pulse_width_end/180.0 + 1)/1000)*16000000 - ((pulse_width_start/180.0 + 1)/1000)*16000000)*(degrees/180.0) + ((pulse_width_start/180.0 + 1)/1000)*16000000;
     }
     else {
@@ -50,7 +50,7 @@ void initialize_servo() {
 
 void servo_move_to(int pulse_width) {
     int cycles = pulse_width + 320000;
-    
+
     TIMER1_TBILR_R &= ~0xFFFF;
     TIMER1_TBILR_R |= (cycles) & 0xFFFF;
     TIMER1_TBPR_R &= ~0xFF;
