@@ -14,23 +14,23 @@
 //might as well initialize everything
 void cyBOT_init_scan() {
     initialize_servo();
-   // ping_init();
-   // adc_init();
+    ping_init();
+    adc_init();
 }
 
 void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data) {
 
     //move servo to angle
     servo_move_to(convert_degrees_to_pulse_width(angle));
-    timer_waitMillis(500);
+    timer_waitMillis(50);
     //store ir distance in raw
     scan_data->IR_raw_val = adc_read();
-    timer_waitMillis(500);
+    timer_waitMillis(10);
     //store ping distance in meter
     ping_trigger();
-    timer_waitMillis(500);
+    timer_waitMillis(10);
     scan_data->sound_dist = ping_wait_response();
-    timer_waitMillis(500);
+    timer_waitMillis(50);
 }
 
 void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_size) {
@@ -45,7 +45,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
     char isDetecting = 0;
 
 
-    uart_sendStr("\n\r\n\r");
+ //   uart_sendStr("\n\r\n\r");
 
     while(min_angle < max_angle) {
             sum = 0;
@@ -69,9 +69,9 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
 
 
-            char msg[100];
-            sprintf(msg, "%d,%d\r\n", min_angle, sum/3);
-            uart_sendStr(msg);
+           // char msg[100];
+          //  sprintf(msg, "%d,%d\r\n", min_angle, sum/3);
+          //  uart_sendStr(msg);
             min_angle+=2;
         }
 
@@ -96,7 +96,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
         }
 
-        uart_sendStr("\n\r\n\r");
+       // uart_sendStr("\n\r\n\r");
         print_objects(object_array, num_objects);
 
         free(scan_data);
@@ -105,9 +105,9 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 void print_objects(obj_t arr[], int size) {
     int i;
     for(i = 0; i < size; i++) {
-        char msg[100];
-        sprintf(msg, "%d,%d, %lf, %lf\r\n", arr[i].start_angle, arr[i].end_angle, arr[i].distance, arr[i].width);
-        uart_sendStr(msg);
+     //   char msg[100];
+    //    sprintf(msg, "%d,%d, %lf, %lf\r\n", arr[i].start_angle, arr[i].end_angle, arr[i].distance, arr[i].width);
+     //   uart_sendStr(msg);
     }
 }
 

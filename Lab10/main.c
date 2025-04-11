@@ -35,7 +35,7 @@ int main() {
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
     uart_interrupt_init();
     initialize_servo();
-    cyBOT_init_Scan(0b111);
+    //cyBOT_init_Scan(0b1);
 
 
     //i have no idea what the hell im doing
