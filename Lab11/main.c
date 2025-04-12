@@ -1,18 +1,11 @@
 /*
- * main.c
- *
- *  Created on: Jan 30, 2025
- *      Author: ahogrady
- *
- *      LAST COMMIT: FIXED INITIAL DISTANCE IN "move_forward(...)"
- *                   ADDED "move_forward1(...)" FOR EASE-IN-OUT ALGORITHM
+So it completes the mission just fine... after about 20 minutes. may need some tweeks.
  */
 
 #include <stdio.h>
 #include <math.h>
 #include "open_interface.h"
 #include "movement.h"
-
 #include "uart-interrupt.h"
 #include "Scan.h"
 #include "sleep.h"
@@ -25,36 +18,28 @@
 
 
 int main() {
-    oi_t *sensor_data = oi_alloc(); // do this only once at start of main()
-    //oi_init(sensor_data); // do this only once at start of main()
+    oi_t *sensor_data = oi_alloc();
+    oi_init(sensor_data);
 
-    timer_init(); // Initialize Timer, needed before any LCD screen functions can be called
-                      // and enables time functions (e.g. timer_waitMillis)
+    timer_init();
     button_init();
-    lcd_init();   // Initialize the LCD screen.  This also clears the screen.
+    lcd_init();
     uart_interrupt_init();
-
-    cyBOT_init_scan(0b111);
-
-
-
+    cyBOT_init_scan();
+  //  cyBOT_init_Scan(0b100);
     //callibrate_servo();
     servo_set_callibration(-104, 199);
 
+
+
+
     int num_objects = 0;
-    int i;
+    int i;  //object iterator for object_array
     obj_t object_array[10];
 
-
-
-    //scan_range(45, 135, object_array, &num_objects);
-
-
-    //print_objects(object_array, num_objects);
     int round = 1;
     int min_angle = 0;
     int max_angle = 180;
-
 
     while(1) {
         if(round > 1) {
@@ -64,38 +49,31 @@ int main() {
 
         scan_range(min_angle, max_angle, object_array, &num_objects);
 
-        if(!num_objects) {
+        if(num_objects == 0) {
             lcd_printf("We are NOT finding this mf\n");
-
             break;
         }
 
-        int skinniest = 0;
-
+        int skinniest_index = 0;
         for(i = 1; i < num_objects; i++) {
-            if(object_array[i].width < object_array[skinniest].width) { skinniest = i; }
+            if(object_array[i].width < object_array[skinniest_index].width) { skinniest_index = i; }
         }
 
-        // found skinniest, turn to it
-        cyBOT_Scan((object_array[skinniest].start_angle + object_array[skinniest].end_angle) / 2, NULL);
+        // found skinniest_index, turn to it with servo (find angle)
+        int angle_of_skinniest_object = (object_array[skinniest_index].start_angle + object_array[skinniest_index].end_angle) / 2;
+        cyBOT_Scan(angle_of_skinniest_object, NULL);
+        lcd_printf("deg of skinniest: %d\n", angle_of_skinniest_object);
 
-        int angle = (object_array[skinniest].start_angle + object_array[skinniest].end_angle) / 2;
-
-        lcd_printf("%d\n", angle);
-
-        if(angle < 90) {
-            turn_right(sensor_data, 90 - angle - 3);
+        //turn to angle with cybot      //TODO What does this do?
+        if(angle_of_skinniest_object < 90) {
+            turn_right(sensor_data, 90 - angle_of_skinniest_object - 3);
         } else {
-            turn_left(sensor_data, angle - 90 - 3);
+            turn_left(sensor_data, angle_of_skinniest_object - 90 - 3);
         }
 
-        int go_this_far = object_array[skinniest].distance * 10 - 190;
+        int go_this_far = object_array[skinniest_index].distance * 10 - 190;    //TODO where does this value come from
         int went_this_far = move_to_obj(sensor_data, go_this_far);
-
-
-        if(went_this_far >= go_this_far) { break; }
-
-
+        if(went_this_far >= go_this_far) { break; }                             //TODO i dont know how this termination works
 
 
         round++;

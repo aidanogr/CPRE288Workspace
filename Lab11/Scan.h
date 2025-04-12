@@ -17,7 +17,9 @@
 #include "servo.h"
 #include "uart-interrupt.h"
 #include "sleep.h"
+#include "lcd.h"
 
+//for code compatibility sake:
 typedef struct cyBOT_Scan_t {
     int sound_dist;
     double IR_raw_val;
@@ -35,6 +37,7 @@ typedef struct obj_t {
 void scan_range(int min_angle, int max_angle, obj_t arr[], int *arr_size);
 void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data);
 void print_objects(obj_t arr[], int size);
+
 void cyBOT_init_scan();
 
 

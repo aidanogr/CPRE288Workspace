@@ -27,7 +27,14 @@ void adc_init(void) {
     ADC0_SSMUX3_R += 10;           // 12) set channel
     ADC0_SSCTL3_R = 0x0006;       // 13) no TS0 D0, yes IE0 END0
     ADC0_IM_R &= ~0x0008;         // 14) disable SS3 interrupts
-    ADC0_ACTSS_R |= 0x0008;       // 15) enable sample sequencer 3
+    ADC0_ACTSS_R |= 0x0009;       // 15) enable sample sequencer 3
+  /*  ADC0_USTAT_R |= 0xF;         //not a fukin clue
+    ADC0_SSCTL0_R = 0x6;
+    ADC0_SSMUX0_R = 0xA;
+    ADC0_SSFIFO0_R = 0x38F;
+    ADC0_SSFIFO1_R = 0xF95;
+    ADC0_SSFSTAT1_R = 0x100; */
+
 }
 
 uint16_t adc_read(void) {

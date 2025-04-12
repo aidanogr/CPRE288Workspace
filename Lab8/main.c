@@ -33,13 +33,14 @@ int main() {
 
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
     uart_interrupt_init();
-    cyBOT_init_Scan(0b111);
 
-    //cyBOT_SERVO_cal();
-    right_calibration_value = 238000;
-    left_calibration_value = 1230250;
-
+    cyBOT_init_Scan(0b100);
     adc_init();
+    //cyBOT_SERVO_cal();
+    //right_calibration_value = 238000;
+    //left_calibration_value = 1230250;
+
+
     cyBOT_Scan(90, NULL);
     int32_t sum = 0;
     lcd_printf("");

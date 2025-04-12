@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="RCGCT"/>
+		<item key="selection" value="skinniest_index"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="skinniest"/>
+			<item value="i"/>
 			<item value="RCGCT"/>
 			<item value="RCGC_TIM"/>
 			<item value="AMS"/>
@@ -21,10 +23,9 @@
 			<item value="_START"/>
 			<item value="printf"/>
 			<item value="version"/>
-			<item value="drive"/>
-			<item value="two"/>
 		</list>
 		<list key="replacehistory">
+			<item value="skinniest_index"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">

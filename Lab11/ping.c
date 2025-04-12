@@ -94,9 +94,10 @@ double ping_wait_response() {
         of = 1;
     }
 
-    lcd_printf("Cycles: %d %s\nMillis: %lf\nCm: %lf\nOverflows: %d", pulse, (of ? "(OF)" : ""), pulse / CLOCK_FREQ * 1000., pulse / CLOCK_FREQ * SOUND_VEL * 50., overflows);
+ //   lcd_printf("Cycles: %d %s\nMillis: %lf\nCm: %lf\nOverflows: %d", pulse, (of ? "(OF)" : ""), pulse / CLOCK_FREQ * 1000., pulse / CLOCK_FREQ * SOUND_VEL * 50., overflows);
 
     overflows += of;
+    return pulse / CLOCK_FREQ * SOUND_VEL * 50.; //trust?
 }
 
 float ping_getDistance (void){

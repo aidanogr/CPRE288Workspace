@@ -7,7 +7,7 @@
 
 #include "Scan.h"
 
-#define SIG_DIST 850
+#define SIG_DIST 650
 #define SIG_WIDTH 3
 #define SIG_DELTA
 
@@ -23,9 +23,16 @@ void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data) {
     //move servo to angle
     servo_move_to(convert_degrees_to_pulse_width(angle));
     timer_waitMillis(50);
-    //store ir distance in raw
+
+    //passing null just turns the servo
+    if(scan_data == NULL) {
+        return;
+    }
+
+    //store raw ir distance (for compatibility with older code)
     scan_data->IR_raw_val = adc_read();
     timer_waitMillis(10);
+
     //store ping distance in meter
     ping_trigger();
     timer_waitMillis(10);
@@ -33,6 +40,8 @@ void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data) {
     timer_waitMillis(50);
 }
 
+
+//uart debug is overrated we ball
 void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_size) {
     cyBOT_Scan_t *scan_data = (cyBOT_Scan_t *) calloc(1, sizeof(cyBOT_Scan_t));
     cyBOT_Scan(0, scan_data);
@@ -45,10 +54,11 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
     char isDetecting = 0;
 
 
- //   uart_sendStr("\n\r\n\r");
 
     while(min_angle < max_angle) {
+            timer_waitMillis(400);
             sum = 0;
+
             for(i = 0; i < 3; i++) {
                 cyBOT_Scan(min_angle, scan_data);
                 sum += scan_data->IR_raw_val;
@@ -56,6 +66,12 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 
             if(!isDetecting) {
                 if(sum/3 > SIG_DIST) {
+                    double a = 791398.7;
+                    double b = 2.603902;
+                    double c = 24.562;
+                    double d = 7.474858;
+                    double dist = d + (a-d)/(1+pow((sum/3)/c,b));
+                    lcd_printf("IR_RAW: %d, \ndist: %.2f", sum/3, dist);
                     isDetecting = 1;
                     object_array[num_objects].start_angle = min_angle;
                 }
@@ -69,10 +85,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
 
 
-           // char msg[100];
-          //  sprintf(msg, "%d,%d\r\n", min_angle, sum/3);
-          //  uart_sendStr(msg);
-            min_angle+=2;
+            min_angle+=1;
         }
 
         *arr_size = num_objects;
@@ -96,16 +109,14 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
         }
 
-       // uart_sendStr("\n\r\n\r");
-        print_objects(object_array, num_objects);
-
         free(scan_data);
 }
 
 void print_objects(obj_t arr[], int size) {
     int i;
     for(i = 0; i < size; i++) {
-     //   char msg[100];
+
+        //   char msg[100];
     //    sprintf(msg, "%d,%d, %lf, %lf\r\n", arr[i].start_angle, arr[i].end_angle, arr[i].distance, arr[i].width);
      //   uart_sendStr(msg);
     }
