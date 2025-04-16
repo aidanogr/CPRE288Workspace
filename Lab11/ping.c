@@ -6,6 +6,7 @@
 
 #include "ping.h"
 #include "Timer.h"
+
 #define CLOCK_FREQ 16000000.
 #define SOUND_VEL 340
 
@@ -82,26 +83,31 @@ void TIMER3B_Handler(void){
     }
 }
 
-double ping_wait_response() {
-    static int overflows = 0;
-
-    char of = 0;
-    int pulse = ((int) g_start_time) - g_end_time;
+float ping_wait_response() {
+//    static int overflows = 0;
 
     while(g_state != DONE) { }
 
-    if(g_start_time < g_end_time) {
-        of = 1;
-    }
+//    char of = 0;
+    int pulse = ((int) g_start_time) - g_end_time;
 
- //   lcd_printf("Cycles: %d %s\nMillis: %lf\nCm: %lf\nOverflows: %d", pulse, (of ? "(OF)" : ""), pulse / CLOCK_FREQ * 1000., pulse / CLOCK_FREQ * SOUND_VEL * 50., overflows);
 
-    overflows += of;
-    return pulse / CLOCK_FREQ * SOUND_VEL * 50.; //trust?
+
+//    if(g_start_time < g_end_time) {
+//        of = 1;
+//    }
+
+    return pulse / CLOCK_FREQ * SOUND_VEL * 50.;
+
+//    lcd_printf("Cycles: %d %s\nMillis: %lf\nCm: %lf\nOverflows: %d", pulse, (of ? "(OF)" : ""), pulse / CLOCK_FREQ * 1000., pulse / CLOCK_FREQ * SOUND_VEL * 50., overflows);
+//
+//    overflows += of;
 }
 
-float ping_getDistance (void){
+float ping_get_cm() {
+    ping_trigger();
 
-    // YOUR CODE HERE (cap)
+    float cm = ping_wait_response();
 
+    return cm;
 }

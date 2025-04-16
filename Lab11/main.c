@@ -28,7 +28,7 @@ int main() {
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
     //callibrate_servo();
-    servo_set_callibration(-104, 199);
+    servo_set_callibration(-82, 237);
 
 
 
@@ -39,7 +39,7 @@ int main() {
 
     int round = 1;
     int min_angle = 0;
-    int max_angle = 180;
+    int max_angle = 45;
 
     while(1) {
         if(round > 1) {

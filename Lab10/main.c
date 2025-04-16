@@ -12,8 +12,6 @@
 #include <math.h>
 #include "open_interface.h"
 #include "movement.h"
-#include "cyBot_uart.h"
-#include "cyBot_Scan.h"
 #include "uart-interrupt.h"
 #include "Scan.h"
 #include "sleep.h"
@@ -35,12 +33,23 @@ int main() {
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
     uart_interrupt_init();
     initialize_servo();
+    ping_init();
+
+
+
+
+
+
+
+
+
+
     //cyBOT_init_Scan(0b1);
 
 
     //i have no idea what the hell im doing
     //callibrate_servo();
-    servo_set_callibration(-104, 199);
+    servo_set_callibration(-82, 237);
 //    timer_waitMillis(2000);
 //    servo_move_to(convert_degrees_to_pulse_width(0));
 //    timer_waitMillis(2000);

@@ -12,7 +12,6 @@
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
-#include "cyBot_Scan.h"
 #include "uart-interrupt.h"
 #include "sleep.h"
 

@@ -16,7 +16,7 @@
 
 
 void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_size) {
-    cyBOT_Scan_t *scan_data = (cyBOT_Scan_t *) calloc(1, sizeof(cyBOT_Scan_t));
+    cyBOT_Scan_t *scan_data = (cyBOT_Scan_t *) calloc(1, sizeof(cyBOT_Scan_t));     // we need to fully completely transition to our own scan functions
     cyBOT_Scan(0, scan_data);
     sleep_millis(2000);
 
