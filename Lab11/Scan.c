@@ -7,7 +7,7 @@
 
 #include "Scan.h"
 
-#define SIG_DIST 820
+#define SIG_DIST 675
 #define SIG_WIDTH 3
 #define SIG_DELTA
 

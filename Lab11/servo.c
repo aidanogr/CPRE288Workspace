@@ -72,6 +72,9 @@ void initialize_servo() {
 void servo_move_to(int pulse_width) {
     int cycles = pulse_width + 320000;
 
+    //TIMER1_TBV_R = cycles;
+
+
     TIMER1_TBILR_R &= ~0xFFFF;
     TIMER1_TBILR_R |= (cycles) & 0xFFFF;
     TIMER1_TBPR_R &= ~0xFF;

@@ -90,6 +90,13 @@ void avoid_bump(oi_t *sensor, uint32_t right, uint32_t left) {
     }
 
     move_to_obj(sensor, 50);
+
+    if(right == 1) {
+        turn_right(sensor, 25);
+
+    } else {
+        turn_left(sensor, 25);
+    }
 }
 
 

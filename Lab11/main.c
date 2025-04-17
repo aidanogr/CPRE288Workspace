@@ -28,7 +28,7 @@ int main() {
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
     //callibrate_servo();
-    servo_set_callibration(-82, 237);
+    servo_set_callibration(-90, 206);
 
 
 
