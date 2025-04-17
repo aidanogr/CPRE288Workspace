@@ -7,7 +7,7 @@
 
 #include "Scan.h"
 
-#define SIG_DIST 650
+#define SIG_DIST 820
 #define SIG_WIDTH 3
 #define SIG_DELTA
 
@@ -104,7 +104,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 
         //uart_sendStr("\n\r\n\r");
         //print_objects(object_array, num_objects);
-        //timer_waitMillis(1000);
+        timer_waitMillis(1000);
         uart_sendStr("help");
 
         free(scan_data);

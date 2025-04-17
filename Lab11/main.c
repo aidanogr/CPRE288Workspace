@@ -39,7 +39,7 @@ int main() {
 
     int round = 1;
     int min_angle = 0;
-    int max_angle = 45;
+    int max_angle = 180;
 
     while(1) {
         if(round > 1) {
