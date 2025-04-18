@@ -72,10 +72,10 @@ void initialize_servo() {
 void servo_move_to(int pulse_width) {
     int cycles = pulse_width + 320000;
 
-    TIMER1_TBILR_R &= ~0xFFFF;
-    TIMER1_TBILR_R |= (cycles) & 0xFFFF;
-    TIMER1_TBPR_R &= ~0xFF;
-    TIMER1_TBPR_R |= (cycles >> 16) & 0xFF;
+
+    TIMER1_TBILR_R = (TIMER1_TBILR_R & ~0xFFFF) | ((cycles) & 0xFFFF);
+    //TIMER1_TBPR_R &= ~0xFF;
+    TIMER1_TBPR_R = (TIMER1_TBPR_R & ~0xFF) | ((cycles >> 16) & 0xFF);
 }
 
 void callibrate_servo() {

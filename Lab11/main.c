@@ -27,8 +27,8 @@ int main() {
     uart_interrupt_init();
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
-    //callibrate_servo();
-    servo_set_callibration(-90, 206);
+    callibrate_servo();
+    //servo_set_callibration(-84, 232);
 
 
 
