@@ -51,8 +51,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
     char isDetecting = 0;
 
 
-    //uart_sendStr("\n\r\n\r");
-
+    uart_sendStr("start scan\n");
     while(min_angle < max_angle) {
             sum = 0;
             for(i = 0; i < 3; i++) {
@@ -77,7 +76,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 
 
             char msg[100];
-            sprintf(msg, "%d,%d", min_angle, sum/3);
+            sprintf(msg, "%d,%d\n", min_angle, sum/3);
             uart_sendStr(msg);
             min_angle+=2;
         }
@@ -103,10 +102,9 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
             }
         }
 
-        //uart_sendStr("\n\r\n\r");
-        //print_objects(object_array, num_objects);
+
         timer_waitMillis(1000);
-        uart_sendStr("help");
+        uart_sendStr("end scan\n");
 
         free(scan_data);
 }

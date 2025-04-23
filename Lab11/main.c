@@ -27,8 +27,8 @@ int main() {
     uart_interrupt_init();
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
-    callibrate_servo();
-    //servo_set_callibration(-84, 232);
+   // callibrate_servo();
+    servo_set_callibration(-84, 232);
 
 
 
@@ -40,7 +40,10 @@ int main() {
     int round = 1;
     int min_angle = 0;
     int max_angle = 180;
+    move_forward(sensor_data, 80);
+    scan_range(0,180, object_array, num_objects);
 
+/*
     while(1) {
         if(round > 1) {
             min_angle = 45;
@@ -82,7 +85,7 @@ int main() {
 
 
 
-
+*/
     oi_free(sensor_data);
 
 

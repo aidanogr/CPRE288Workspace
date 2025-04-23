@@ -13,6 +13,7 @@
 #include <stdint.h>
 #include "Timer.h"
 #include "sleep.h"
+#include "uart-interrupt.h"
 
 void move_backwards(oi_t* sensor_data, double distance_mm);
 double move_forward(oi_t* sensor_data, double distance_mm);

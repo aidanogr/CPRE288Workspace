@@ -123,6 +123,7 @@ void uart_sendStr(const char *data){
 //Drive 
 //Turn 
 // 00 11 00
+/*
 void handleInstruction(char byte_received) {
 
     switch(byte_received) {
@@ -133,14 +134,14 @@ void handleInstruction(char byte_received) {
     }
 
 
-}
+} &*/
 
 
 // Interrupt handler for receive interrupts
 void UART1_Handler(void)
 {
 
-    static char[8] instruction = {0}; 
+    //static char[8] instruction = {0};
     char byte_received;
     //check if handler called due to RX event
     if (UART1_MIS_R & 0b10000)
@@ -153,7 +154,7 @@ void UART1_Handler(void)
         //ignore the error bits in UART1_DR_R
         byte_received = (char) UART1_DR_R & 0xFF;
 
-        handleInstruction(byte_received);       
+//        handleInstruction(byte_received);
 
 
 
