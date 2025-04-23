@@ -14,6 +14,15 @@ import java.util.Scanner;
 
 
 ///A WARNING FOR ALL DEBUGGING HEADACHES: I THINK ALL INSTANCES OF UI's MUST BE CLOSED BEFORE STARTING ANOTHER
+///
+///usage:
+///run lab 11 as is 
+///run ui with bot connected to wifi
+///send commands in textbox of ui (hit enter) in the form "opcode, param1 (as integer), param2 (as integer)"
+///example: 
+///w,100,0  //move forwards 100
+///p,0,180  //scan range (uses graph)
+///
 @SuppressWarnings("serial")
 public class UI extends JFrame {
     private XYSeries series;
@@ -38,7 +47,14 @@ public class UI extends JFrame {
         add(chartPanel, BorderLayout.CENTER);
 
         commandField = new JTextField();
-        commandField.addActionListener(e -> sendCommand());
+        commandField.addActionListener(e -> {
+			try {
+				sendCommand();
+			} catch (InterruptedException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		});
         add(commandField, BorderLayout.SOUTH);
 
         setVisible(true);
@@ -64,7 +80,6 @@ public class UI extends JFrame {
                     		split = s.indexOf(',');
                     		this.series.add(Integer.valueOf(s.substring(0, split)), Integer.valueOf(s.substring(split + 1, s.length())));
                     	}
-                    	this.chart.plotChanged(null); //idk if this is necessary 
                     	this.repaint();				  //this is definitely necessary
                     }
                     if(s.equals("forwards")) {
@@ -82,14 +97,38 @@ public class UI extends JFrame {
     }
 
     //this doesnt do anything right now
-    private void sendCommand() {
+    private void sendCommand() throws InterruptedException {
         if (writer != null) {
             String command = commandField.getText();
-            writer.println(command);
+            int splits[] = new int[2];
+            splits[0] = command.indexOf(',');
+            splits[1] = command.substring(splits[0]+1).indexOf(',') + splits[0]+1;
+            
+            char opcode = command.charAt(splits[0]-1);
+
+            int p = Integer.valueOf(command.substring(splits[0]+1, splits[1]));
+            char param1 = (char) p;
+            
+            int p2 = Integer.valueOf(command.substring(splits[1]+1), command.length());
+            char param2 = (char) p2;
+            
+            writer.print(opcode);
+            Thread.sleep(20);
+            writer.print(param1);
+			Thread.sleep(20);
+            writer.print(param2);
+            Thread.sleep(20);
+            writer.flush();
+            
+            System.out.println(opcode + " " + param1 + " " + param2);
             commandField.setText("");
+        }
+        else {
+        	System.out.println("gate 2");
         }
     }
 
+    ///Entry
     public static void main(String[] args) {
         SwingUtilities.invokeLater(UI::new);
     }
