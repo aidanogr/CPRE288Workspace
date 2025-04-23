@@ -20,3 +20,6 @@ plt.scatter(np.array(x), np.array(y))
 plt.show()
 
 s.close()
+
+
+

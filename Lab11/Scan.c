@@ -56,6 +56,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
     while(min_angle < max_angle) {
             sum = 0;
             for(i = 0; i < 3; i++) {
+                timer_waitMillis(20);
                 cyBOT_Scan(min_angle, scan_data);
                 sum += scan_data->IR_raw_val;
             }
