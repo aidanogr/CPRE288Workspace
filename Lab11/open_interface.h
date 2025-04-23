@@ -138,7 +138,7 @@ void oi_free(oi_t *self);
 
 
 ///Initialize open interface
-void oi_init(oi_t *self);
+void oi_init(volatile oi_t *self);
 
 void oi_close();
 

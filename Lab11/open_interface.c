@@ -156,7 +156,7 @@ void oi_init_noupdate()
  *
  *
  */
-void oi_init(oi_t *self)
+void oi_init(volatile oi_t *self)
 {
     oi_init_noupdate();
 

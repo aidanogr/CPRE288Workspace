@@ -1,6 +1,3 @@
-/*
-So it completes the mission just fine... after about 20 minutes. may need some tweeks.
- */
 
 #include <stdio.h>
 #include <math.h>
@@ -18,13 +15,14 @@ So it completes the mission just fine... after about 20 minutes. may need some t
 
 
 int main() {
-    oi_t *sensor_data = oi_alloc();
+    volatile oi_t sensor;
+    volatile oi_t *sensor_data = &sensor;
     oi_init(sensor_data);
 
     timer_init();
     button_init();
     lcd_init();
-    uart_interrupt_init();
+    uart_interrupt_init(sensor_data);
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
    // callibrate_servo();
@@ -40,8 +38,16 @@ int main() {
     int round = 1;
     int min_angle = 0;
     int max_angle = 180;
+
+  //  move_forward(sensor_data, 100.0);
+  //  move_forward(sensor_data, 50.0);
+  //  move_forward(sensor_data, 10.0);
+    //lcd_printf("%d", sensor_data);
+    while(1) {
+        //wait for command from uart
+    }
     move_forward(sensor_data, 80);
-    scan_range(0,180, object_array, num_objects);
+    scan_range(0,180, object_array, &num_objects);
 
 /*
     while(1) {
@@ -86,7 +92,7 @@ int main() {
 
 
 */
-    oi_free(sensor_data);
+
 
 
 

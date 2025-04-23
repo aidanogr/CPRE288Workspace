@@ -20335,3 +20335,1436 @@ Finished building target: "Lab11.out"
  
 
 **** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../adc.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="adc.d_raw"  "../adc.c"
+Finished building: "../adc.c"
+ 
+Building file: "../Timer.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Timer.d_raw"  "../Timer.c"
+Finished building: "../Timer.c"
+ 
+Building file: "../button.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="button.d_raw"  "../button.c"
+Finished building: "../button.c"
+ 
+Building file: "../lcd.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="lcd.d_raw"  "../lcd.c"
+Finished building: "../lcd.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 48: warning #112-D: statement is unreachable
+"../main.c", line 49: warning #169-D: argument of type "int" is incompatible with parameter of type "int *"
+"../main.c", line 37: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 41: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 42: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 162: warning #121-D: return value type does not match the function type
+Finished building: "../movement.c"
+ 
+Building file: "../ping.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="ping.d_raw"  "../ping.c"
+Finished building: "../ping.c"
+ 
+Building file: "../servo.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="servo.d_raw"  "../servo.c"
+Finished building: "../servo.c"
+ 
+Building file: "../sleep.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="sleep.d_raw"  "../sleep.c"
+Finished building: "../sleep.c"
+ 
+Building file: "../tm4c123gh6pm_startup_ccs.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="tm4c123gh6pm_startup_ccs.d_raw"  "../tm4c123gh6pm_startup_ccs.c"
+Finished building: "../tm4c123gh6pm_startup_ccs.c"
+ 
+Building file: "../open_interface.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="open_interface.d_raw"  "../open_interface.c"
+"../open_interface.c", line 356: warning #179-D: variable "charging_state" was declared but never referenced
+Finished building: "../open_interface.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 49: warning #169-D: argument of type "int" is incompatible with parameter of type "int *"
+"../main.c", line 37: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 41: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 42: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 37: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 41: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 42: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 130: warning #225-D: function "lcd_printf" declared implicitly
+"../uart-interrupt.c", line 144: warning #225-D: function "lcd_printf" declared implicitly
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'main.obj' failed
+"../main.c", line 33: warning #179-D: variable "num_objects" was declared but never referenced
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 35: warning #179-D: variable "object_array" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+"../main.c", line 45: error #41: expected an identifier
+"../main.c", line 45: warning #78-D: this declaration has no storage class or type specifier
+"../main.c", line 45: warning #93-D: identifier-list parameters may only be used in a function definition
+"../main.c", line 45: error #148: declaration is incompatible with "double move_forward(oi_t *, double)" (declared at line 19 of "..\movement.h")
+"../main.c", line 46: error #80: expected a type specifier
+"../main.c", line 46: error #80: expected a type specifier
+"../main.c", line 46: error #20: identifier "object_array" is undefined
+"../main.c", line 46: error #80: expected a type specifier
+"../main.c", line 46: warning #78-D: this declaration has no storage class or type specifier
+"../main.c", line 46: error #148: declaration is incompatible with "void scan_range(int, int, obj_t *, int *)" (declared at line 37 of "..\Scan.h")
+"../main.c", line 91: warning #78-D: this declaration has no storage class or type specifier
+"../main.c", line 91: warning #93-D: identifier-list parameters may only be used in a function definition
+"../main.c", line 91: error #148: declaration is incompatible with "void oi_free(oi_t *)" (declared at line 137 of "..\open_interface.h")
+"../main.c", line 95: error #171: expected a declaration
+At end of source: warning #12-D: parsing restarts here after previous syntax error
+9 errors detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'uart-interrupt.obj' failed
+"../uart-interrupt.c", line 130: error #20: identifier "pararm1" is undefined
+1 error detected in the compilation of "../uart-interrupt.c".
+gmake: *** [uart-interrupt.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'uart-interrupt.obj' failed
+"../uart-interrupt.c", line 130: error #20: identifier "pararm1" is undefined
+1 error detected in the compilation of "../uart-interrupt.c".
+gmake: *** [uart-interrupt.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'movement.obj' failed
+"../movement.c", line 116: error #148: declaration is incompatible with "double move_forward(oi_t *, double)" (declared at line 19 of "..\movement.h")
+"../movement.c", line 162: warning #121-D: return value type does not match the function type
+1 error detected in the compilation of "../movement.c".
+gmake: *** [movement.obj] Error 1
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 133: warning #225-D: function "move_forward" declared implicitly
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 162: warning #121-D: return value type does not match the function type
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 130: warning #1923-D: too many characters in character literal -- extra leading characters ignored
+"../uart-interrupt.c", line 130: warning #169-D: argument of type "int" is incompatible with parameter of type "const char *__restrict__"
+"../uart-interrupt.c", line 130: warning #154-D: conversion of nonzero integer to pointer
+"../uart-interrupt.c", line 134: warning #225-D: function "move_forward" declared implicitly
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 135: warning #1923-D: too many characters in character literal -- extra leading characters ignored
+"../uart-interrupt.c", line 135: warning #169-D: argument of type "int" is incompatible with parameter of type "const char *"
+"../uart-interrupt.c", line 135: warning #154-D: conversion of nonzero integer to pointer
+"../uart-interrupt.c", line 139: warning #225-D: function "move_forward" declared implicitly
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 162: warning #121-D: return value type does not match the function type
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 135: warning #1923-D: too many characters in character literal -- extra leading characters ignored
+"../uart-interrupt.c", line 135: warning #169-D: argument of type "int" is incompatible with parameter of type "const char *"
+"../uart-interrupt.c", line 135: warning #154-D: conversion of nonzero integer to pointer
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 162: warning #121-D: return value type does not match the function type
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 135: warning #1923-D: too many characters in character literal -- extra leading characters ignored
+"../uart-interrupt.c", line 135: warning #169-D: argument of type "int" is incompatible with parameter of type "const char *"
+"../uart-interrupt.c", line 135: warning #154-D: conversion of nonzero integer to pointer
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 135: warning #1923-D: too many characters in character literal -- extra leading characters ignored
+"../uart-interrupt.c", line 135: warning #169-D: argument of type "int" is incompatible with parameter of type "const char *"
+"../uart-interrupt.c", line 135: warning #154-D: conversion of nonzero integer to pointer
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 138: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 138: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 45: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'uart-interrupt.obj' failed
+"../uart-interrupt.c", line 137: error #20: identifier "sensor_data" is undefined
+1 error detected in the compilation of "../uart-interrupt.c".
+gmake: *** [uart-interrupt.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'main.obj' failed
+"../main.c", line 42: error #20: identifier "sendor_data" is undefined
+"../main.c", line 46: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+1 error detected in the compilation of "../main.c".
+gmake: *** [main.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 46: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 46: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 48: warning #112-D: statement is unreachable
+"../main.c", line 34: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 37: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'uart-interrupt.obj' failed
+"../uart-interrupt.c", line 134: error #20: identifier "sensor_data" is undefined
+1 error detected in the compilation of "../uart-interrupt.c".
+gmake: *** [uart-interrupt.obj] Error 1
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'uart-interrupt.obj' failed
+"../uart-interrupt.c", line 26: error #148: declaration is incompatible with "void uart_interrupt_init(oi_t *)" (declared at line 40 of "..\uart-interrupt.h")
+"../uart-interrupt.c", line 134: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+1 error detected in the compilation of "../uart-interrupt.c".
+gmake: *** [uart-interrupt.obj] Error 1
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 20: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 25: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 49: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 20: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 49: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+"../uart-interrupt.c", line 134: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'movement.obj' failed
+"../movement.c", line 116: error #148: declaration is incompatible with "double move_forward(oi_t *, double)" (declared at line 19 of "..\movement.h")
+"../movement.c", line 118: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 125: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 132: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+1 error detected in the compilation of "../movement.c".
+gmake: *** [movement.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 20: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 118: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 125: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 132: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+Finished building: "../movement.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../open_interface.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="open_interface.d_raw"  "../open_interface.c"
+ 
+>> Compilation failure
+subdir_rules.mk:9: recipe for target 'open_interface.obj' failed
+"../open_interface.c", line 159: error #148: declaration is incompatible with "void oi_init(oi_t *)" (declared at line 141 of "..\open_interface.h")
+"../open_interface.c", line 163: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../open_interface.c", line 164: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../open_interface.c", line 356: warning #179-D: variable "charging_state" was declared but never referenced
+1 error detected in the compilation of "../open_interface.c".
+gmake: *** [open_interface.obj] Error 1
+gmake: Target 'all' not remade because of errors.
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+Building file: "../main.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="main.d_raw"  "../main.c"
+"../main.c", line 49: warning #112-D: statement is unreachable
+"../main.c", line 35: warning #179-D: variable "i" was declared but never referenced
+"../main.c", line 38: warning #179-D: variable "round" was declared but never referenced
+"../main.c", line 39: warning #179-D: variable "min_angle" was declared but never referenced
+"../main.c", line 40: warning #179-D: variable "max_angle" was declared but never referenced
+Finished building: "../main.c"
+ 
+Building file: "../Scan.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="Scan.d_raw"  "../Scan.c"
+Finished building: "../Scan.c"
+ 
+Building file: "../movement.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="movement.d_raw"  "../movement.c"
+"../movement.c", line 118: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 125: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../movement.c", line 132: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+Finished building: "../movement.c"
+ 
+Building file: "../uart-interrupt.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="uart-interrupt.d_raw"  "../uart-interrupt.c"
+Finished building: "../uart-interrupt.c"
+ 
+Building file: "../open_interface.c"
+Invoking: Arm Compiler
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --include_path="C:/Users/ahogrady/workspace_v12/Lab11" --include_path="C:/ti/TivaWare_C_Series-2.2.0.295" --include_path="C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi --preproc_with_compile --preproc_dependency="open_interface.d_raw"  "../open_interface.c"
+"../open_interface.c", line 163: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../open_interface.c", line 164: warning #169-D: argument of type "volatile oi_t *" is incompatible with parameter of type "oi_t *"
+"../open_interface.c", line 356: warning #179-D: variable "charging_state" was declared but never referenced
+Finished building: "../open_interface.c"
+ 
+Building target: "Lab11.out"
+Invoking: Arm Linker
+"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/bin/armcl" -mv7M4 --code_state=16 --float_support=FPv4SPD16 -me --define=ccs="ccs" --define=PART_TM4C123GH6PM -g --gcc --diag_warning=225 --diag_wrap=off --display_error_number --abi=eabi -z -m"Lab11.map" --heap_size=4096 --stack_size=4096 -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/lib" -i"C:/ti/ccs1271/ccs/tools/compiler/ti-cgt-arm_20.2.7.LTS/include" --reread_libs --diag_wrap=off --display_error_number --warn_sections --xml_link_info="Lab11_linkInfo.xml" --rom_model -o "Lab11.out" "./Scan.obj" "./Timer.obj" "./adc.obj" "./button.obj" "./lcd.obj" "./main.obj" "./movement.obj" "./open_interface.obj" "./ping.obj" "./servo.obj" "./sleep.obj" "./tm4c123gh6pm_startup_ccs.obj" "./uart-interrupt.obj" "../tm4c123gh6pm.cmd"  -llibc.a -l"C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib" 
+<Linking>
+Finished building target: "Lab11.out"
+ 
+
+**** Build Finished ****
+
+**** Build of configuration Debug for project Lab11 ****
+
+"C:\\ti\\ccs1271\\ccs\\utils\\bin\\gmake" -k -j 24 all -O 
+ 
+gmake[1]: 'Lab11.out' is up to date.
+
+**** Build Finished ****

@@ -113,7 +113,7 @@ void avoid_bump(oi_t *sensor, uint32_t right, uint32_t left) {
 
 
 
-double move_forward(oi_t *sensor_data, double dist) { // dist in mm
+double move_forward(volatile oi_t *sensor_data, double dist) { // dist in mm
 
     oi_update(sensor_data);
 
@@ -130,15 +130,15 @@ double move_forward(oi_t *sensor_data, double dist) { // dist in mm
             oi_setWheels(0, 0);
 
             move_backwards(sensor_data, 30);
-            sprintf(buffer, "forwards, %d\n", (int) sum);
-            uart_sendStr(buffer);
+           // sprintf(buffer, "forwards, %d\n", (int) sum);
+            //uart_sendStr(buffer);
             return sum;
         }
     }
 
     oi_setWheels(0, 0);
-    sprintf(buffer, "forwards,%d\n", (int) sum);
-    uart_sendStr(buffer);
+   // sprintf(buffer, "forwards,%d\n", (int) sum);
+   // uart_sendStr(buffer);
     return sum;
 }
 
@@ -159,7 +159,6 @@ void move_backwards(oi_t* sensor_data, double dist) {
     oi_setWheels(0, 0);
     sprintf(buffer, "backwards,%d\n", (int) sum);
     uart_sendStr(buffer);
-    return sum;
 }
 
 void turn_left(oi_t* sensor_data, double degrees){

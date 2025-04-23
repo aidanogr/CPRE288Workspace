@@ -15,12 +15,16 @@
 #include <stdint.h>
 #include "uart-interrupt.h"
 #include <string.h>
-
+#include "lcd.h"
 // These variables are declared as examples for your use in the interrupt handler.
 volatile char command_byte = 's'; // byte value for special character used as a command
 volatile int stop_scan = 0; // flag to tell the main program a special command was received
 
-void uart_interrupt_init(void){
+
+
+
+void uart_interrupt_init(volatile oi_t* sensor_data){
+    sensor = sensor_data;
     //enable clock to GPIO port B
     SYSCTL_RCGCGPIO_R |= 0b10;
 
@@ -123,18 +127,53 @@ void uart_sendStr(const char *data){
 //Drive 
 //Turn 
 // 00 11 00
-/*
+
+
+void execute_command(char opcode, char param1, char param2) {
+    lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
+    move_forward(sensor, 200);
+    if(opcode == 'w') {
+        lcd_printf("%d", sensor);
+       // move_forward(sensor, (double) ((int) param1));
+        lcd_printf("gate 3");
+    }
+}
+
 void handleInstruction(char byte_received) {
 
-    switch(byte_received) {
+    static char opcode = '\0';
+    static char param1 = '\0';
+    static char param2 = '\0';
 
-        case('')
+
+    if(opcode != '\0') {
+        if(param1 != '\0') {
+            if(param2 != '\0') {
+                lcd_printf("You fucked up");
+            }
+            else {
+                param2 = byte_received;
+                execute_command(opcode, param1, param2);
+                opcode = '\0';
+                param1 = '\0';
+                param2 = '\0';
+            }
+        }
+        else {
+            param1 = byte_received;
+            return;
+        }
 
 
     }
+    else {
+        opcode = byte_received;
+        return;
+    }
 
 
-} &*/
+
+}
 
 
 // Interrupt handler for receive interrupts
@@ -142,6 +181,7 @@ void UART1_Handler(void)
 {
 
     //static char[8] instruction = {0};
+    //lcd_printf("gate1");
     char byte_received;
     //check if handler called due to RX event
     if (UART1_MIS_R & 0b10000)
@@ -150,31 +190,12 @@ void UART1_Handler(void)
         //clear the RX trigger flag (clear by writing 1 to ICR)
         UART1_ICR_R |= 0b00010000;
 
-        //read the byte received from UART1_DR_R and echo it back to PuTTY
+
         //ignore the error bits in UART1_DR_R
         byte_received = (char) UART1_DR_R & 0xFF;
 
-//        handleInstruction(byte_received);
+        handleInstruction(byte_received);
 
 
-
-        //if byte received is a carriage return
-        if (byte_received == '\r')
-        {
-            //send a newline character back to PuTTY
-            uart_sendChar('\n');
-        }
-        else
-        {
-            //AS NEEDED
-            //code to handle any other special characters
-            //code to update global shared variables
-            //DO NOT PUT TIME-CONSUMING CODE IN AN ISR
-
-            if (byte_received == command_byte)
-            {
-              stop_scan = 1;
-            }
-        }
     }
 }
