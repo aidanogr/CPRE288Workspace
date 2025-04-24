@@ -70,7 +70,7 @@ public class UI extends JFrame {
                 writer = new PrintWriter(socket.getOutputStream(), true);
                 System.out.println("Connected.");
 
-                String s = ""; Scanner scanner = new Scanner("");
+                String s = ""; 
                 int split = 0;
                 //ALL COMMANDS ARE FOLLOWED BY A NEW LINE NOW 
                 while ((s = reader.readLine()) != null) {
@@ -80,7 +80,7 @@ public class UI extends JFrame {
                     		split = s.indexOf(',');
                     		this.series.add(Integer.valueOf(s.substring(0, split)), Integer.valueOf(s.substring(split + 1, s.length())));
                     	}
-                    	this.repaint();				  //this is definitely necessary
+                    	this.repaint();				
                     }
                     if(s.equals("forwards")) {
                     	split = s.indexOf(',');
@@ -96,7 +96,8 @@ public class UI extends JFrame {
         }).start();
     }
 
-    //this doesnt do anything right now
+    //this sends command in the form [char opcode][char param1][char param2]. Inputs are integers (except opcode
+	// and are converted to chars before sent (i.e w,100,0)
     private void sendCommand() throws InterruptedException {
         if (writer != null) {
             String command = commandField.getText();
