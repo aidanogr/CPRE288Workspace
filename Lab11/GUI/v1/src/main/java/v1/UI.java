@@ -31,7 +31,8 @@ public class UI extends JFrame {
     private PrintWriter writer;
     private JTextField commandField;
     private JFreeChart chart;
-
+    private JLabel statusUpdate;
+    
     public UI() {
         setTitle("CyBot UI");
         setSize(800, 600);
@@ -56,7 +57,11 @@ public class UI extends JFrame {
 			}
 		});
         add(commandField, BorderLayout.SOUTH);
-
+        this.statusUpdate = new JLabel("cyBot waiting");
+        this.statusUpdate.setSize(300, 40);
+        this.statusUpdate.setAlignmentX(CENTER_ALIGNMENT);
+        this.statusUpdate.setHorizontalTextPosition(SwingConstants.CENTER);	//this shit dont work but whatever
+        add(statusUpdate, BorderLayout.NORTH);
         setVisible(true);
         connectAndListen();
     }
@@ -86,10 +91,12 @@ public class UI extends JFrame {
                     	split = s.indexOf(',');
                     	System.out.println(Integer.valueOf(s.substring(split+1, s.length())));
                     }
+                    if(s.equals("done")) {
+                    	this.statusUpdate.setText("cyBot waiting...");
+                    }
                 }
                 System.out.println("\nConnection closed.");
                 socket.close();
-                scanner.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -114,15 +121,16 @@ public class UI extends JFrame {
             char param2 = (char) p2;
             
             writer.print(opcode);
-            Thread.sleep(20);
+            Thread.sleep(50);
             writer.print(param1);
-			Thread.sleep(20);
+			Thread.sleep(50);
             writer.print(param2);
-            Thread.sleep(20);
+            Thread.sleep(50);
             writer.flush();
             
-            System.out.println(opcode + " " + param1 + " " + param2);
+            System.out.print(opcode + " " + p + " " + p2);
             commandField.setText("");
+            this.statusUpdate.setText("cyBot busy");
         }
         else {
         	System.out.println("gate 2");
