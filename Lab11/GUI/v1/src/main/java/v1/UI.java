@@ -2,6 +2,7 @@ package v1;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.XYPlot;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -10,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -26,6 +28,11 @@ import java.util.Scanner;
 @SuppressWarnings("serial")
 public class UI extends JFrame {
     private XYSeries series;
+    private ArrayList<XYSeries> seriesHistory;
+    private int selectedSeries;
+    private XYSeriesCollection dataset;
+    private JButton viewLeft;
+    private JButton viewRight;
     private Socket socket;
     private BufferedReader reader;
     private PrintWriter writer;
@@ -40,9 +47,46 @@ public class UI extends JFrame {
         setLayout(new BorderLayout());
 
         series = new XYSeries("Data");
-        XYSeriesCollection dataset = new XYSeriesCollection(series);
+        dataset = new XYSeriesCollection(series);
         chart = ChartFactory.createXYLineChart(
                 "IR Sensor", "angle", "raw", dataset);
+
+        seriesHistory = new ArrayList<>(10);
+        seriesHistory.add(series);
+        viewLeft = new JButton("<");
+        viewLeft.addActionListener(e -> {
+        	try {
+        		selectedSeries--;
+        		if(selectedSeries < 0) {
+        			System.out.println("Already at earliest chart");
+        			selectedSeries++;
+        			throw new Exception();
+        		}
+        		dataset.removeAllSeries();
+        		dataset.addSeries(seriesHistory.get(selectedSeries));
+        	}
+        	catch(Exception err) {
+        		
+        	}
+        });
+        viewRight = new JButton(">");
+        viewRight.addActionListener(e -> {
+        	try {
+        		selectedSeries++;
+        		if(selectedSeries >= seriesHistory.size()) {
+        			System.out.println("Already at latest chart");
+        			selectedSeries--;
+        			throw new Exception();
+        		}
+        		dataset.removeAllSeries();
+        		dataset.addSeries(seriesHistory.get(selectedSeries));
+        	}
+        	catch(Exception err) {
+        		
+        	}
+        });
+        add(viewLeft, BorderLayout.LINE_START);
+        add(viewRight, BorderLayout.LINE_END);
 
         ChartPanel chartPanel = new ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
@@ -80,13 +124,22 @@ public class UI extends JFrame {
                 //ALL COMMANDS ARE FOLLOWED BY A NEW LINE NOW 
                 while ((s = reader.readLine()) != null) {
                     System.out.println(s); // Just print each character as received
+                   
                     if(s.equals("start scan")) {
+						dataset.removeAllSeries();
+						series = new XYSeries("Data");
+						dataset.addSeries(series);
+						seriesHistory.add(series);
+						selectedSeries = seriesHistory.size()-1;
+						XYPlot plt = (XYPlot) chart.getPlot();
+						plt.getDomainAxis().setInverted(true);
                     	while(!(s = reader.readLine()).equals("end scan")) {
                     		split = s.indexOf(',');
                     		this.series.add(Integer.valueOf(s.substring(0, split)), Integer.valueOf(s.substring(split + 1, s.length())));
                     	}
                     	this.repaint();				
                     }
+
                     if(s.equals("forwards")) {
                     	split = s.indexOf(',');
                     	System.out.println(Integer.valueOf(s.substring(split+1, s.length())));
@@ -117,7 +170,7 @@ public class UI extends JFrame {
             int p = Integer.valueOf(command.substring(splits[0]+1, splits[1]));
             char param1 = (char) p;
             
-            int p2 = Integer.valueOf(command.substring(splits[1]+1), command.length());
+            int p2 = Integer.valueOf(command.substring(splits[1]+1));
             char param2 = (char) p2;
             
             writer.print(opcode);
