@@ -13,40 +13,52 @@
 
 
 
+num_objects;
+obj_t object_array[10];
+
+void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
+    //lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
+    //move_forward(200);
+    if((char) opcode == 'w') {
+        //lcd_printf("%d", sensor);
+        move_forward((double) param1);
+    }
+
+    if((char) opcode == 'p') {
+
+        scan_range(param1, param2, object_array, &num_objects);
+
+
+    }
+    uart_sendStr("done\n");
+
+}
 
 int main() {
-    volatile oi_t sensor;
-    volatile oi_t *sensor_data = &sensor;
-    oi_init(sensor_data);
+    movement_init();
 
     timer_init();
     button_init();
     lcd_init();
-    uart_interrupt_init(sensor_data);
+    uart_interrupt_init();
     cyBOT_init_scan();
   //  cyBOT_init_Scan(0b100);
    // callibrate_servo();
     servo_set_callibration(-84, 232);
+    num_objects = 0;
 
 
 
 
-    int num_objects = 0;
-    int i;  //object iterator for object_array
-    obj_t object_array[10];
-
-    int round = 1;
-    int min_angle = 0;
-    int max_angle = 180;
-
-  //  move_forward(sensor_data, 100.0);
-  //  move_forward(sensor_data, 50.0);
-  //  move_forward(sensor_data, 10.0);
-    //lcd_printf("%d", sensor_data);
     while(1) {
         //wait for command from uart
+        if(Interrupt_Ready == 1) {
+            //lcd_printf("gate42");
+            execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
+            reset_Interrupt();
+        }
     }
-    move_forward(sensor_data, 80);
+    //move_forward(sensor_data, 80);
     scan_range(0,180, object_array, &num_objects);
 
 /*

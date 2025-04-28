@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="sensor_data"/>
+		<item key="selection" value="Resul"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="Resul"/>
 			<item value="sensor"/>
 			<item value="skinniest"/>
 			<item value="i"/>
@@ -22,7 +23,6 @@
 			<item value="PI"/>
 			<item value="sleep_millis"/>
 			<item value="_START"/>
-			<item value="printf"/>
 		</list>
 		<list key="replacehistory">
 			<item value="sensor_data"/>

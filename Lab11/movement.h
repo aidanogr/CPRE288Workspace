@@ -13,14 +13,9 @@
 #include <stdint.h>
 #include "Timer.h"
 #include "sleep.h"
-#include "uart-interrupt.h"
 
-void move_backwards(oi_t* sensor_data, double distance_mm);
-double move_forward(volatile oi_t* sensor_data, double distance_mm);
-double move_forward1(oi_t* sensor_data, double distance_mm);
-void turn_left(oi_t* sensor_data, double degrees);
-void turn_right(oi_t* sensor_data, double degrees);
-double absoluteVal(double val);
-double move_to_obj(oi_t *sensor, double dist);
+void movement_init();
+void movement_free();
+double move_forward(double distance_millimeters);   //millimeters
 
 #endif /* MOVEMENT_H_ */

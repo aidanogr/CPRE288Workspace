@@ -38,6 +38,8 @@ void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data) {
 }
 
 
+
+
 //uart debug is overrated we ball
 void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_size) {
     cyBOT_Scan_t *scan_data = (cyBOT_Scan_t *) calloc(1, sizeof(cyBOT_Scan_t));     // we need to fully completely transition to our own scan functions

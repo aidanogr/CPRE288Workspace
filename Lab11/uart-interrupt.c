@@ -23,8 +23,16 @@ volatile int stop_scan = 0; // flag to tell the main program a special command w
 
 
 
-void uart_interrupt_init(volatile oi_t* sensor_data){
-    sensor = sensor_data;
+
+
+
+
+
+
+
+void uart_interrupt_init(){
+    Interrupt_Result = 0;
+    Interrupt_Ready = 0;
     //enable clock to GPIO port B
     SYSCTL_RCGCGPIO_R |= 0b10;
 
@@ -124,50 +132,42 @@ void uart_sendStr(const char *data){
 }
 
 
-//Drive 
-//Turn 
-// 00 11 00
 
 
-void execute_command(char opcode, char param1, char param2) {
-    lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
-    move_forward(sensor, 200);
-    if(opcode == 'w') {
-        lcd_printf("%d", sensor);
-       // move_forward(sensor, (double) ((int) param1));
-        lcd_printf("gate 3");
-    }
+void reset_Interrupt() {
+    Interrupt_Ready = 0;
+    Interrupt_Result = 0;
 }
 
+//stores full instruction in Interrupt_Result and sets Interrupt_Ready to 1, reset using reset_Interrupt();
 void handleInstruction(char byte_received) {
 
-    static char opcode = '\0';
-    static char param1 = '\0';
-    static char param2 = '\0';
+    static int chars_recieved = 0;
 
 
-    if(opcode != '\0') {
-        if(param1 != '\0') {
-            if(param2 != '\0') {
+    if(chars_recieved > 0) {
+        if(chars_recieved > 1) {
+           // lcd_printf("%d", chars_recieved);
+            if(chars_recieved > 2) {
                 lcd_printf("You fucked up");
             }
             else {
-                param2 = byte_received;
-                execute_command(opcode, param1, param2);
-                opcode = '\0';
-                param1 = '\0';
-                param2 = '\0';
+                Interrupt_Result = (Interrupt_Result << 8) | byte_received;
+                Interrupt_Ready = 1;
+                chars_recieved = 0; //reset counter
             }
         }
         else {
-            param1 = byte_received;
+            Interrupt_Result = (Interrupt_Result << 8) | byte_received;
+            chars_recieved++;
             return;
         }
 
 
     }
     else {
-        opcode = byte_received;
+        Interrupt_Result |= byte_received;
+        chars_recieved++;
         return;
     }
 
@@ -181,7 +181,7 @@ void UART1_Handler(void)
 {
 
     //static char[8] instruction = {0};
-    //lcd_printf("gate1");
+
     char byte_received;
     //check if handler called due to RX event
     if (UART1_MIS_R & 0b10000)

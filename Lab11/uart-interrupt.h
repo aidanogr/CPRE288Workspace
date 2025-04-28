@@ -24,7 +24,6 @@
 #include "open_interface.h"
 #include "movement.h"
 
-volatile oi_t *sensor;
 
 // Notice that interrupt.h provides library function prototypes for IntMasterEnable() and IntRegister()
 
@@ -36,8 +35,22 @@ volatile oi_t *sensor;
 extern volatile char command_byte; // byte value for special character used as a command
 extern volatile int stop_scan; // flag to tell the main program a special command was received
 
+
+
+/**
+ * When interrupt is called by gui, longer functions break shit so we just store
+ * what it called in here and check it in the main while loop.
+ * Only gets set once all 3 params(bytes) are set by handle_instruction();
+ *
+ * |reserved byte, do not care| |opcode char| |param1 char| |param2 char|
+ */
+volatile uint32_t Interrupt_Result;
+volatile uint8_t Interrupt_Ready;
+void reset_Interrupt();
+
+
 // UART1 device initialization for CyBot to PuTTY
-void uart_interrupt_init(volatile oi_t* sensor_data);
+void uart_interrupt_init();
 
 // Send a byte over UART1 from CyBot to PuTTY
 void uart_sendChar(char data);
