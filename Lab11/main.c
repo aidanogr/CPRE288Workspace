@@ -17,21 +17,29 @@ num_objects;
 obj_t object_array[10];
 
 void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
+    static int num_recieved = 0;
+
     //lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
     //move_forward(200);
     if((char) opcode == 'w') {
-        //lcd_printf("%d", sensor);
         move_forward((double) param1);
-    }
 
-    if((char) opcode == 'p') {
+    } else if((char) opcode == 's') {
+        move_forward(((double) param1) * -1);
 
+    } else if((char) opcode == 'p') {
         scan_range(param1, param2, object_array, &num_objects);
 
+    } else if((char) opcode == 'a') {
+        turn_left((double) param1);
 
+    } else if((char) opcode == 'd') {
+        turn_right((double) param1);
     }
-    uart_sendStr("done\n");
 
+
+
+    uart_sendStr("done\n");
 }
 
 int main() {
@@ -52,14 +60,13 @@ int main() {
 
     while(1) {
         //wait for command from uart
-        if(Interrupt_Ready == 1) {
-            //lcd_printf("gate42");
-            execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
-            reset_Interrupt();
-        }
+        while(Interrupt_Ready != 1) { }
+
+        execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
+        reset_Interrupt();
     }
     //move_forward(sensor_data, 80);
-    scan_range(0,180, object_array, &num_objects);
+    //scan_range(0,180, object_array, &num_objects);
 
 /*
     while(1) {

@@ -195,7 +195,5 @@ void UART1_Handler(void)
         byte_received = (char) UART1_DR_R & 0xFF;
 
         handleInstruction(byte_received);
-
-
     }
 }

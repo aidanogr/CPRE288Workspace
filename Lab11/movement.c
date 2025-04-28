@@ -31,16 +31,28 @@ void movement_free() {
     oi_free(sensor_data);
 }
 
-double move_forward(double distance_mm) { // dist in mm
 
+double absoluteVal(double n) {
+    return n < 0 ? n * -1 : n;
+}
+
+
+
+double move_forward(double distance_mm) { // dist in mm
+    int dir = 1;
+
+    if(distance_mm < 0) {
+        dir = -1;
+        distance_mm *= -1;
+    }
 
     oi_update(sensor_data);
     double sum = 0;
-    oi_setWheels(MOVE_FORWARD_SPEED, MOVE_FORWARD_SPEED);
+    oi_setWheels(MOVE_FORWARD_SPEED * dir, MOVE_FORWARD_SPEED * dir);
 
     while (sum < distance_mm) {
         oi_update(sensor_data);
-        sum += sensor_data->distance;
+        sum += dir * sensor_data->distance;
         timer_waitMillis(10);
     }
     oi_update(sensor_data);
@@ -49,3 +61,28 @@ double move_forward(double distance_mm) { // dist in mm
 }
 
 
+void turn_left(double degrees){
+    oi_update(sensor_data);
+    double sum = 0;
+
+    oi_setWheels(MAXIMUM_ROTATIONAL_VELOCITY, -MAXIMUM_ROTATIONAL_VELOCITY);
+    while(sum < degrees-ANGLE_OFFSET) {
+        oi_update(sensor_data);
+        sum += absoluteVal(sensor_data -> angle);
+    }
+
+    oi_setWheels(0,0);
+}
+
+void turn_right(double degrees){
+    oi_update(sensor_data);
+    double sum = 0;
+
+    oi_setWheels(-MAXIMUM_ROTATIONAL_VELOCITY, MAXIMUM_ROTATIONAL_VELOCITY);
+    while(sum < degrees-ANGLE_OFFSET) {
+        oi_update(sensor_data);
+        sum += absoluteVal(sensor_data -> angle);
+    }
+
+    oi_setWheels(0,0);
+}
