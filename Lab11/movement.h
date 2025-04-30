@@ -13,6 +13,8 @@
 #include <stdint.h>
 #include "Timer.h"
 #include "sleep.h"
+#include "uart-interrupt.h"
+#include <string.h>
 
 void movement_init();
 void movement_free();

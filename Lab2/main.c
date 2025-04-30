@@ -22,8 +22,9 @@ int main() {
                       // and enables time functions (e.g. timer_waitMillis)
 
     lcd_init();   // Initialize the LCD screen.  This also clears the screen.
+    move_forward1(sensor_data, 1000);
 
-    lcd_printf("%.2f", move_forward(sensor_data, 400));
+//    lcd_printf("%.2f", move_forward(sensor_data, 400));
 
     oi_free(sensor_data); // do this once at end of main()
 

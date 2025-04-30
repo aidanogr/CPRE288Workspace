@@ -17,15 +17,16 @@ num_objects;
 obj_t object_array[10];
 
 void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
-    static int num_recieved = 0;
+    //static int num_recieved = 0;
 
     //lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
+    lcd_printf("3");
     //move_forward(200);
     if((char) opcode == 'w') {
-        move_forward((double) param1);
+        move_forward(((double) param1) * ((double) param2));
 
     } else if((char) opcode == 's') {
-        move_forward(((double) param1) * -1);
+        move_forward(((double) param1) * -1 * ((double) param2));
 
     } else if((char) opcode == 'p') {
         scan_range(param1, param2, object_array, &num_objects);
@@ -37,7 +38,7 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
         turn_right((double) param1);
     }
 
-
+    lcd_printf("4");
 
     uart_sendStr("done\n");
 }
@@ -55,15 +56,17 @@ int main() {
     servo_set_callibration(-84, 232);
     num_objects = 0;
 
-
+//    oi_setWheels(0, 0);
 
 
     while(1) {
         //wait for command from uart
-        while(Interrupt_Ready != 1) { }
-
+        while(Interrupt_Ready != 1) { lcd_printf("1"); }
+        lcd_printf("2");
         execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
+        lcd_printf("5");
         reset_Interrupt();
+        lcd_printf("6");
     }
     //move_forward(sensor_data, 80);
     //scan_range(0,180, object_array, &num_objects);

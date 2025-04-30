@@ -98,7 +98,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 
                 if(scan_data->sound_dist < 310 || j == 9) {
                     object_array[i].distance = scan_data->sound_dist;
-                    object_array[i].width = 2 * object_array[i].distance * tan( ((M_PI)/360) * (object_array[i].end_angle - object_array[i].start_angle));
+                    object_array[i].width = 2 * object_array[i].distance * tan(((M_PI)/360) * (object_array[i].end_angle - object_array[i].start_angle));
                     break;
                 }
             }
@@ -109,14 +109,18 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
         uart_sendStr("end scan\n");
 
         free(scan_data);
+
+        send_objects(object_array, num_objects);
 }
 
-void print_objects(obj_t arr[], int size) {
+void send_objects(obj_t arr[], int size) {
+    uart_sendStr("start objects\n");
     int i;
     for(i = 0; i < size; i++) {
         char msg[100];
-        sprintf(msg, "%d,%d, %lf, %lf\n", arr[i].start_angle, arr[i].end_angle, arr[i].distance, arr[i].width);
+        sprintf(msg, "%d,%d,%lf,%lf\n", arr[i].start_angle, arr[i].end_angle, arr[i].distance, arr[i].width);
         uart_sendStr(msg);
     }
+    uart_sendStr("end objects\n");
 }
 

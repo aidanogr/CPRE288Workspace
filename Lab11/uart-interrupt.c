@@ -145,6 +145,8 @@ void handleInstruction(char byte_received) {
     static int chars_recieved = 0;
 
 
+
+
     if(chars_recieved > 0) {
         if(chars_recieved > 1) {
            // lcd_printf("%d", chars_recieved);
@@ -164,14 +166,13 @@ void handleInstruction(char byte_received) {
         }
 
 
-    }
-    else {
+    } else {
         Interrupt_Result |= byte_received;
         chars_recieved++;
         return;
     }
 
-
+    //lcd_printf("%d", chars_recieved);
 
 }
 

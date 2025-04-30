@@ -48,15 +48,41 @@ double move_forward(double distance_mm) { // dist in mm
 
     oi_update(sensor_data);
     double sum = 0;
+    char buffer[100];
     oi_setWheels(MOVE_FORWARD_SPEED * dir, MOVE_FORWARD_SPEED * dir);
+
 
     while (sum < distance_mm) {
         oi_update(sensor_data);
+        lcd_printf("%lf", sum);
+
+        if(dir > 0 && (sensor_data->bumpRight == 1 || sensor_data->bumpLeft == 1)) {
+            oi_setWheels(0, 0);
+
+            uart_sendStr("error: bump\n");
+            sprintf(buffer, "moved %lf\n", sum * dir);
+            uart_sendStr(buffer);
+            return sum;
+
+        } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > 2000)) {
+            oi_setWheels(0, 0);
+
+            uart_sendStr("error: boundary\n");
+            sprintf(buffer, "moved %lf\n", sum * dir);
+            uart_sendStr(buffer);
+            return sum;
+        }
+
         sum += dir * sensor_data->distance;
         timer_waitMillis(10);
     }
-    oi_update(sensor_data);
+
     oi_setWheels(0,0); //stop
+    oi_update(sensor_data);
+    sprintf(buffer, "moved %lf\n", sum * dir);
+    uart_sendStr(buffer);
+
+
     return sum;
 }
 
@@ -64,6 +90,7 @@ double move_forward(double distance_mm) { // dist in mm
 void turn_left(double degrees){
     oi_update(sensor_data);
     double sum = 0;
+    char buffer[100];
 
     oi_setWheels(MAXIMUM_ROTATIONAL_VELOCITY, -MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
@@ -72,11 +99,16 @@ void turn_left(double degrees){
     }
 
     oi_setWheels(0,0);
+    oi_update(sensor_data);
+
+    sprintf(buffer, "turned %lf\n", sum * -1);
+    uart_sendStr(buffer);
 }
 
 void turn_right(double degrees){
     oi_update(sensor_data);
     double sum = 0;
+    char buffer[100];
 
     oi_setWheels(-MAXIMUM_ROTATIONAL_VELOCITY, MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
@@ -85,4 +117,8 @@ void turn_right(double degrees){
     }
 
     oi_setWheels(0,0);
+    oi_update(sensor_data);
+
+    sprintf(buffer, "turned %d\n", sum);
+    uart_sendStr(buffer);
 }
