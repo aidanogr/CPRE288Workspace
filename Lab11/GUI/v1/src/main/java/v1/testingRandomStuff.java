@@ -34,10 +34,11 @@ public class testingRandomStuff {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		parse_input("d,0,90");
-		parse_input("d,0,100");
-		parse_input("d,90,0");
-		parse_input("d,0,90");
+//		parse_input("d,0,90");
+//		parse_input("d,0,100");
+//		parse_input("d,90,0");
+//		parse_input("d,0,90");
+		
 	}
 
 }

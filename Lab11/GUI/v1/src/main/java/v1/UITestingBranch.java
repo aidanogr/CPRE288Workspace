@@ -15,6 +15,8 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
+
+
 ///A WARNING FOR ALL DEBUGGING HEADACHES: I THINK ALL INSTANCES OF UI's MUST BE CLOSED BEFORE STARTING ANOTHER
 ///
 ///usage:
@@ -26,11 +28,12 @@ import java.util.Scanner;
 ///p,0,180  //scan range (uses graph)
 ///
 @SuppressWarnings("serial")
-public class UI extends JFrame {
+public class UITestingBranch extends JFrame {
     private XYSeries series;
     private ArrayList<XYSeries> seriesHistory;
     private int selectedSeries;
     private XYSeriesCollection dataset;
+    private FieldMap fieldMap;
     private JButton viewLeft;
     private JButton viewRight;
     private Socket socket;
@@ -39,62 +42,95 @@ public class UI extends JFrame {
     private JTextField commandField;
     private JFreeChart chart;
     private JLabel statusUpdate;
-    private ArrayList<ScannedObject> objects;
+    
+    
+    
+    private class FieldMap {
+    	private XYSeries map_series;
+		private XYSeriesCollection map_dataset;
+		private JFreeChart map_field;
+		private ChartPanel mapPanel;
+		private JPanel mapContainer;
+		
 
-    public UI() {
-    	objects = new ArrayList<ScannedObject>(5);
-        setTitle("CyBot UI");
-        setSize(800, 600);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+		public FieldMap() {
+			map_series = new XYSeries("MapData");
+			map_dataset = new XYSeriesCollection(map_series);
+			map_field = ChartFactory.createScatterPlot("Map", "x1", "x2", map_dataset);		
+			mapContainer = new JPanel();
+			mapContainer.setLayout(new BorderLayout());
+			mapPanel = new ChartPanel(map_field);
+			mapPanel.setLayout(new BorderLayout());
+			mapContainer.add(mapPanel, BorderLayout.CENTER);
+			
+			map_series.add(500, 500);
+			
+		}
+		
+	
+		
+    }
+    
+    public UITestingBranch() {
+		//JFRAME OPTIONS
+		setTitle("CyBot UI");
+		setSize(800, 600);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new BorderLayout());
 
-        series = new XYSeries("Data");
-        dataset = new XYSeriesCollection(series);
-        chart = ChartFactory.createXYLineChart(
-                "IR Sensor", "angle", "raw", dataset);
+		//IR SENSOR CHART AND MAP FIELD 
+		series = new XYSeries("Data");
+		dataset = new XYSeriesCollection(series);
 
-        seriesHistory = new ArrayList<>(10);
-        seriesHistory.add(series);
-        viewLeft = new JButton("<");
-        viewLeft.addActionListener(e -> {
-        	try {
-        		selectedSeries--;
-        		if(selectedSeries < 0) {
-        			System.out.println("Already at earliest chart");
-        			selectedSeries++;
-        			throw new Exception();
-        		}
-        		dataset.removeAllSeries();
-        		dataset.addSeries(seriesHistory.get(selectedSeries));
-        	}
-        	catch(Exception err) {
-        		
-        	}
-        });
-        viewRight = new JButton(">");
-        viewRight.addActionListener(e -> {
-        	try {
-        		selectedSeries++;
-        		if(selectedSeries >= seriesHistory.size()) {
-        			System.out.println("Already at latest chart");
-        			selectedSeries--;
-        			throw new Exception();
-        		}
-        		dataset.removeAllSeries();
-        		dataset.addSeries(seriesHistory.get(selectedSeries));
-        	}
-        	catch(Exception err) {
-        		
-        	}
-        });
-        add(viewLeft, BorderLayout.LINE_START);
-        add(viewRight, BorderLayout.LINE_END);
+		chart = ChartFactory.createXYLineChart(
+				"IR Sensor", "angle", "raw", dataset);
 
-        ChartPanel chartPanel = new ChartPanel(chart);
-        add(chartPanel, BorderLayout.CENTER);
+		ChartPanel chartPanel = new ChartPanel(chart);
+		JPanel chartContainer = new JPanel();
+		chartContainer.setLayout(new BorderLayout());
+		chartContainer.add(chartPanel, BorderLayout.CENTER);
+		
 
-        commandField = new JTextField();
-        commandField.addActionListener(e -> {
+		
+		//History for easy traversal between previous scans
+		seriesHistory = new ArrayList<>(10);
+		seriesHistory.add(series);
+		viewLeft = new JButton("<");
+		viewLeft.addActionListener(e -> {
+			try {
+				selectedSeries--;
+				if(selectedSeries < 0) {
+					System.out.println("Already at earliest chart");
+					selectedSeries++;
+					throw new Exception();
+				}
+				dataset.removeAllSeries();
+				dataset.addSeries(seriesHistory.get(selectedSeries));
+			}
+			catch(Exception err) {
+				
+			}
+		});
+		viewRight = new JButton(">");
+		viewRight.addActionListener(e -> {
+			try {
+				selectedSeries++;
+				if(selectedSeries >= seriesHistory.size()) {
+					System.out.println("Already at latest chart");
+					selectedSeries--;
+					throw new Exception();
+				}
+				dataset.removeAllSeries();
+				dataset.addSeries(seriesHistory.get(selectedSeries));
+			}
+			catch(Exception err) {
+				
+			}
+		});
+
+
+		commandField = new JTextField();
+		commandField.addActionListener(e -> {
 			try {
 				sendCommand();
 			} catch (InterruptedException e1) {
@@ -102,80 +138,25 @@ public class UI extends JFrame {
 				e1.printStackTrace();
 			}
 		});
-        add(commandField, BorderLayout.SOUTH);
-        this.statusUpdate = new JLabel("cyBot waiting");
-        this.statusUpdate.setSize(300, 40);
-        this.statusUpdate.setAlignmentX(CENTER_ALIGNMENT);
-        this.statusUpdate.setHorizontalTextPosition(SwingConstants.CENTER);	//this shit dont work but whatever
-        add(statusUpdate, BorderLayout.NORTH);
-        setVisible(true);
-        connectAndListen();
-    }
-    
-    private class ScannedObject {
-    	public int startAngle;
-    	public int endAngle;
-    	public double distance;
-    	public double width;
-    	
-    	public ScannedObject(int startAngle, int endAngle, double distance, double width) {
-    		this.startAngle = startAngle;
-    		this.endAngle = endAngle;
-    		this.distance = distance;
-    		this.width = width;
-    	}
+		this.statusUpdate = new JLabel("cyBot waiting");
+		this.statusUpdate.setSize(300, 40);
+		this.statusUpdate.setAlignmentX(CENTER_ALIGNMENT);
+		this.statusUpdate.setHorizontalTextPosition(SwingConstants.CENTER);	//this shit dont work but whatever
+		
+
+		this.fieldMap = new FieldMap();
+
+		chartContainer.add(viewLeft, BorderLayout.WEST);
+		chartContainer.add(viewRight, BorderLayout.EAST);	
+		//add(chartPanel, BorderLayout.CENTER);
+		add(chartContainer, BorderLayout.CENTER);
+		add(fieldMap.mapContainer, BorderLayout.EAST);
+		add(commandField, BorderLayout.SOUTH);
+		add(statusUpdate, BorderLayout.NORTH);
+		setVisible(true);
+		connectAndListen();
 
     }
-    private void parseObjectData(String s) {
-    	ArrayList<Integer> splits = new ArrayList<Integer>(20);
-    	
-    	for(int i = 0; i < s.length(); i++) {
-    		if(s.charAt(i) == ',') {
-    			splits.add(i);
-    		}
-    	}
-    	if(splits.size() != 3) {
-    		System.out.println("bad object usage");
-    	}
-
-    	int startAngle = Integer.valueOf(s.substring(0,splits.get(0)));
-    	int endAngle = Integer.valueOf(s.substring(splits.get(0)+1, splits.get(1)));
-    	double distance = Double.valueOf(s.substring(splits.get(1)+1, splits.get(2)));
-    	double width = Double.valueOf(s.substring(splits.get(2) + 1, s.length()));
-
-    	ScannedObject newObject = new ScannedObject(startAngle, endAngle, distance, width);
-    	objects.add(newObject);
-
-    }
-    private void handleObjects(BufferedReader reader) {
-    	
-    	//start angle
-    	//end angle
-    	//distance
-    	//width
-
-    	String s = "";
-    	try {
-			while((s = reader.readLine()) != null) {
-				if(s.equals("end objects")) {
-					for(ScannedObject o : objects) {
-						System.out.println("\n" + o.startAngle + " " + o.endAngle + " " + o.distance + " " + o.width);
-					}
-					return;
-				}
-				else {
-					parseObjectData(s);
-				}
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	
-    }
-    
-    
-    
     
     private void connectAndListen() {
         new Thread(() -> {
@@ -213,9 +194,6 @@ public class UI extends JFrame {
                     }
                     if(s.equals("done")) {
                     	this.statusUpdate.setText("cyBot waiting...");
-                    }
-                    if(s.equals("start objects")) {
-                    	handleObjects(reader); 
                     }
                 }
                 System.out.println("\nConnection closed.");
@@ -262,7 +240,7 @@ public class UI extends JFrame {
 
     ///Entry
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(UI::new);
+        SwingUtilities.invokeLater(UITestingBranch::new);
     }
 }
 
