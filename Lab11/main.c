@@ -32,7 +32,7 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
         scan_range(param1, param2, object_array, &num_objects);
 
     } else if((char) opcode == 'a') {
-        turn_left((double) param1);
+        turn_left(((double) param1) * param2);
 
     } else if((char) opcode == 'd') {
         turn_right((double) param1);

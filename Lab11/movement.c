@@ -58,24 +58,24 @@ double move_forward(double distance_mm) { // dist in mm
 
         if(dir > 0 && (sensor_data->bumpRight == 1 || sensor_data->bumpLeft == 1)) {
             oi_setWheels(0, 0);
-
+            sprintf(buffer, "moved,%d\n", (int) sum * dir);
+            uart_sendStr(buffer);
             if(sensor_data->bumpLeft == 1) {
                 uart_sendStr("error,bump,left\n");
             }
             else {
                 uart_sendStr("error,bump,right\n");
             }
-            sprintf(buffer, "moved,%d\n", (int) sum * dir);
-            uart_sendStr(buffer);
+
             move_forward(-50);
             return sum;
 
         } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > 2000)) {
             oi_setWheels(0, 0);
-
-            uart_sendStr("error,boundary\n");
             sprintf(buffer, "moved,%d\n", (int) sum * dir);
             uart_sendStr(buffer);
+            uart_sendStr("error,boundary\n");
+
             move_forward(-50);
             return sum;
         }
@@ -95,6 +95,7 @@ double move_forward(double distance_mm) { // dist in mm
 
 
 void turn_left(double degrees){
+    lcd_printf("%.2f", degrees);
     oi_update(sensor_data);
     double sum = 0;
     char buffer[100];
