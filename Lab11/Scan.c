@@ -11,6 +11,8 @@
 #define SIG_WIDTH 3
 #define SIG_DELTA
 
+void send_objects(obj_t arr[], int size);
+
 //might as well initialize everything
 void cyBOT_init_scan() {
     initialize_servo();
