@@ -59,17 +59,19 @@ double move_forward(double distance_mm) { // dist in mm
         if(dir > 0 && (sensor_data->bumpRight == 1 || sensor_data->bumpLeft == 1)) {
             oi_setWheels(0, 0);
 
-            uart_sendStr("error: bump\n");
-            sprintf(buffer, "moved %lf\n", sum * dir);
+            uart_sendStr("error,bump\n");
+            sprintf(buffer, "moved,%lf\n", sum * dir);
             uart_sendStr(buffer);
+            move_forward(-50);
             return sum;
 
         } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > 2000)) {
             oi_setWheels(0, 0);
 
-            uart_sendStr("error: boundary\n");
-            sprintf(buffer, "moved %lf\n", sum * dir);
+            uart_sendStr("error,boundary\n");
+            sprintf(buffer, "moved,%lf\n", sum * dir);
             uart_sendStr(buffer);
+            move_forward(-50);
             return sum;
         }
 
@@ -79,7 +81,7 @@ double move_forward(double distance_mm) { // dist in mm
 
     oi_setWheels(0,0); //stop
     oi_update(sensor_data);
-    sprintf(buffer, "moved %lf\n", sum * dir);
+    sprintf(buffer, "moved,%lf\n", sum * dir);
     uart_sendStr(buffer);
 
 
@@ -101,7 +103,7 @@ void turn_left(double degrees){
     oi_setWheels(0,0);
     oi_update(sensor_data);
 
-    sprintf(buffer, "turned %lf\n", sum * -1);
+    sprintf(buffer, "turned,%d\n", (int) (sum * -1));
     uart_sendStr(buffer);
 }
 
@@ -119,6 +121,6 @@ void turn_right(double degrees){
     oi_setWheels(0,0);
     oi_update(sensor_data);
 
-    sprintf(buffer, "turned %d\n", sum);
+    sprintf(buffer, "turned,%d\n", (int) sum);
     uart_sendStr(buffer);
 }

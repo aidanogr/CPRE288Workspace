@@ -44,6 +44,8 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
 }
 
 int main() {
+
+
     movement_init();
 
     timer_init();
