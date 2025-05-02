@@ -3,9 +3,11 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.general.Dataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
+import v1.Vector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,8 +44,7 @@ public class UITestingBranch extends JFrame {
     private JTextField commandField;
     private JFreeChart chart;
     private JLabel statusUpdate;
-    
-    
+    private Vector cyBOT_position;
     
     private class FieldMap {
     	private XYSeries map_series;
@@ -62,9 +63,9 @@ public class UITestingBranch extends JFrame {
 			mapPanel = new ChartPanel(map_field);
 			mapPanel.setLayout(new BorderLayout());
 			mapContainer.add(mapPanel, BorderLayout.CENTER);
-			
 			map_series.add(500, 500);
-			
+			XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer(false, true);
+			renderer.setSeriesPaint(selectedSeries, getForeground());
 		}
 		
 	
@@ -72,6 +73,8 @@ public class UITestingBranch extends JFrame {
     }
     
     public UITestingBranch() {
+    	
+    	this.cyBOT_position = new Vector(0,0);
 		//JFRAME OPTIONS
 		setTitle("CyBot UI");
 		setSize(800, 600);
@@ -158,6 +161,10 @@ public class UITestingBranch extends JFrame {
 
     }
     
+    private void addBorder() {
+    	
+    }
+
     private void connectAndListen() {
         new Thread(() -> {
             try {

@@ -1,4 +1,4 @@
-package v1;
+package v2;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -15,16 +15,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-///A WARNING FOR ALL DEBUGGING HEADACHES: I THINK ALL INSTANCES OF UI's MUST BE CLOSED BEFORE STARTING ANOTHER
-///
-///usage:
-///run lab 11 as is 
-///run ui with bot connected to wifi
-///send commands in textbox of ui (hit enter) in the form "opcode, param1 (as integer), param2 (as integer)"
-///example: 
-///w,100,0  //move forwards 100
-///p,0,180  //scan range (uses graph)
-///
+///THIS SHIT IS UNDER CONSTRUCTION DO NOT USE 
 @SuppressWarnings("serial")
 public class UI extends JFrame {
     private XYSeries series;
@@ -40,9 +31,20 @@ public class UI extends JFrame {
     private JFreeChart chart;
     private JLabel statusUpdate;
     private ArrayList<ScannedObject> objects;
+    private MapPanel mapPanel;
 
     public UI() {
+    	
+    	//Map to show cybot movement and 
+    	mapPanel = new MapPanel();
+    	JFrame mapFrame = new JFrame("Map");
+    	mapFrame.setDefaultCloseOperation(EXIT_ON_CLOSE);
+    	mapFrame.add(mapPanel);
+    	mapFrame.pack();
+    	mapFrame.setVisible(true);
+    	
     	objects = new ArrayList<ScannedObject>(5);
+
         setTitle("CyBot UI");
         setSize(800, 600);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -53,6 +55,7 @@ public class UI extends JFrame {
         chart = ChartFactory.createXYLineChart(
                 "IR Sensor", "angle", "raw", dataset);
 
+        //make series history for easy toggling between previous scans
         seriesHistory = new ArrayList<>(10);
         seriesHistory.add(series);
         viewLeft = new JButton("<");
@@ -87,11 +90,12 @@ public class UI extends JFrame {
         		
         	}
         });
-        add(viewLeft, BorderLayout.LINE_START);
+        add(viewLeft, BorderLayout.LINE_START); 	//left and right history buttons
         add(viewRight, BorderLayout.LINE_END);
 
         ChartPanel chartPanel = new ChartPanel(chart);
         add(chartPanel, BorderLayout.CENTER);
+
 
         commandField = new JTextField();
         commandField.addActionListener(e -> {
@@ -103,13 +107,15 @@ public class UI extends JFrame {
 			}
 		});
         add(commandField, BorderLayout.SOUTH);
+
         this.statusUpdate = new JLabel("cyBot waiting");
         this.statusUpdate.setSize(300, 40);
         this.statusUpdate.setAlignmentX(CENTER_ALIGNMENT);
         this.statusUpdate.setHorizontalTextPosition(SwingConstants.CENTER);	//this shit dont work but whatever
         add(statusUpdate, BorderLayout.NORTH);
+
         setVisible(true);
-        connectAndListen();
+        connectAndListen();	//Listens to messages from cybot on another thread
     }
     
 
@@ -133,6 +139,8 @@ public class UI extends JFrame {
 
     	ScannedObject newObject = new ScannedObject(startAngle, endAngle, distance, width);
     	objects.add(newObject);
+    	mapPanel.addObjects(objects);
+    	objects.removeAll(objects);
 
     }
     
@@ -191,17 +199,26 @@ public class UI extends JFrame {
                     	this.repaint();				
                     }
 
-                    if(s.equals("forwards")) {
+                    else if(s.contains("moved")) {
                     	split = s.indexOf(',');
-                    	
-                    	System.out.println(Integer.valueOf(s.substring(split+1, s.length())));
+                    	mapPanel.cyBot_move(Integer.valueOf(s.substring(split+1, s.length())));
                     }
-                    if(s.equals("done")) {
+                    else if(s.contains("error")) {
+                    	split = s.indexOf(',');
+                    	handleCyBotError(s.substring(split+1, s.length()));
+                    }
+                    else if(s.contains("turned")) {
+                    	split = s.indexOf(',');
+                    	mapPanel.cyBot_turn(Integer.valueOf(s.substring(split+1, s.length())));
+                    }
+                    else if (s.equals("done")) {
                     	this.statusUpdate.setText("cyBot waiting...");
                     }
-                    if(s.equals("start objects")) {
+
+                    else if(s.equals("start objects")) {
                     	handleObjects(reader); 
                     }
+
                 }
                 System.out.println("\nConnection closed.");
                 socket.close();
@@ -211,10 +228,33 @@ public class UI extends JFrame {
         }).start();
     }
 
-    //this sends command in the form [char opcode][char param1][char param2]. Inputs are integers (except opcode
+    private void handleCyBotError(String error) {
+		// TODO Auto-generated method stub
+		if(error.contains("bump")) {
+			int split = error.indexOf(',');
+			if(error.substring(split+1).contains("eft")) {
+				mapPanel.cyBot_hitObject(true);
+			}
+			else {
+				mapPanel.cyBot_hitObject(false);
+			}
+		}
+		else if(error.contains("boundary")) {
+			mapPanel.cyBot_hitBoundary();
+		}
+	}
+
+
+
+    //THIS ONLY WORKS BETWEEN [0,128]
+	//this sends command in the form [char opcode][char param1][char param2]. Inputs are integers (except opcode
 	// and are converted to chars before sent (i.e w,100,0)
     private void sendCommand() throws InterruptedException {
         if (writer != null) {
+        	if(statusUpdate.getText().equals("cyBot busy")) {
+        		System.out.println("cybot busy, try again later");
+        		return;
+        	}
             String command = commandField.getText();
             int splits[] = new int[2];
             splits[0] = command.indexOf(',');
@@ -223,9 +263,17 @@ public class UI extends JFrame {
             char opcode = command.charAt(splits[0]-1);
 
             int p = Integer.valueOf(command.substring(splits[0]+1, splits[1]));
+            if(p > 128) {
+            	System.out.println("param 1 too large, [0,128]");
+            	return;
+            }
             char param1 = (char) p;
             
             int p2 = Integer.valueOf(command.substring(splits[1]+1));
+            if(p2 > 128) {
+            	System.out.println("param 2 too large, [0,128]");
+            	return;
+            }
             char param2 = (char) p2;
             
             writer.print(opcode);

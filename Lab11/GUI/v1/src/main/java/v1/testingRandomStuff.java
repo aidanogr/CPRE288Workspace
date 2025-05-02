@@ -1,5 +1,7 @@
 package v1;
 
+import java.util.ArrayList;
+
 public class testingRandomStuff {
 
 	public static void parse_input(String command) {
@@ -38,7 +40,14 @@ public class testingRandomStuff {
 //		parse_input("d,0,100");
 //		parse_input("d,90,0");
 //		parse_input("d,0,90");
+		ArrayList<Integer> r = new ArrayList<Integer>();
+		r.add(1);
+		r.add(3);
 		
+		r.removeAll(r);
+		for(Integer i : r) {
+			System.out.println(i);
+		}
 	}
 
 }
