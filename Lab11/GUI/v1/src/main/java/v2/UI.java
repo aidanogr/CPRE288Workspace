@@ -26,7 +26,7 @@ public class UI extends JFrame {
     private JButton viewRight;
     private Socket socket;
     private BufferedReader reader;
-    private PrintWriter writer;
+    private OutputStream writer;
     private JTextField commandField;
     private JFreeChart chart;
     private JLabel statusUpdate;
@@ -104,6 +104,9 @@ public class UI extends JFrame {
 			} catch (InterruptedException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		});
         add(commandField, BorderLayout.SOUTH);
@@ -175,7 +178,7 @@ public class UI extends JFrame {
                 System.out.println("Connecting to 192.168.1.1:288...");
                 socket = new Socket("192.168.1.1", 288);
                 reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                writer = new PrintWriter(socket.getOutputStream(), true);
+                writer = socket.getOutputStream();
                 System.out.println("Connected.");
 
                 String s = ""; 
@@ -249,7 +252,7 @@ public class UI extends JFrame {
     //THIS ONLY WORKS BETWEEN [0,128]
 	//this sends command in the form [char opcode][char param1][char param2]. Inputs are integers (except opcode
 	// and are converted to chars before sent (i.e w,100,0)
-    private void sendCommand() throws InterruptedException {
+    private void sendCommand() throws InterruptedException, IOException {
         if (writer != null) {
         	if(statusUpdate.getText().equals("cyBot busy")) {
         		System.out.println("cybot busy, try again later");
@@ -263,24 +266,18 @@ public class UI extends JFrame {
             char opcode = command.charAt(splits[0]-1);
 
             int p = Integer.valueOf(command.substring(splits[0]+1, splits[1]));
-            if(p > 128) {
-            	System.out.println("param 1 too large, [0,128]");
-            	return;
-            }
+            
             char param1 = (char) p;
             
             int p2 = Integer.valueOf(command.substring(splits[1]+1));
-            if(p2 > 128) {
-            	System.out.println("param 2 too large, [0,128]");
-            	return;
-            }
+            
             char param2 = (char) p2;
             
-            writer.print(opcode);
+            writer.write((byte)opcode);
             Thread.sleep(50);
-            writer.print(param1);
+            writer.write((byte) param1);
 			Thread.sleep(50);
-            writer.print(param2);
+            writer.write((byte) param2);
             Thread.sleep(50);
             writer.flush();
             
