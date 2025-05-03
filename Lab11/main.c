@@ -63,7 +63,7 @@ int main() {
 
     while(1) {
         //wait for command from uart
-        while(Interrupt_Ready != 1) { lcd_printf("1"); }
+        while(Interrupt_Ready != 1) { lcd_printf("%d", copy); }
         lcd_printf("2");
         execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
         lcd_printf("5");

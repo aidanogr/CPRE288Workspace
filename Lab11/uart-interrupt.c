@@ -33,6 +33,7 @@ volatile int stop_scan = 0; // flag to tell the main program a special command w
 void uart_interrupt_init(){
     Interrupt_Result = 0;
     Interrupt_Ready = 0;
+    copy = 0;
     //enable clock to GPIO port B
     SYSCTL_RCGCGPIO_R |= 0b10;
 
@@ -151,7 +152,7 @@ void handleInstruction(char byte_received) {
         if(chars_recieved > 1) {
            // lcd_printf("%d", chars_recieved);
             if(chars_recieved > 2) {
-                lcd_printf("You fucked up");
+
             }
             else {
                 Interrupt_Result = (Interrupt_Result << 8) | byte_received;
@@ -194,7 +195,6 @@ void UART1_Handler(void)
 
         //ignore the error bits in UART1_DR_R
         byte_received = (char) UART1_DR_R & 0xFF;
-
         handleInstruction(byte_received);
     }
 }
