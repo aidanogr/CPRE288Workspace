@@ -35,7 +35,7 @@
 extern volatile char command_byte; // byte value for special character used as a command
 extern volatile int stop_scan; // flag to tell the main program a special command was received
 
-
+volatile int copy;
 
 /**
  * When interrupt is called by gui, longer functions break shit so we just store
