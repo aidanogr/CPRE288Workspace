@@ -1,4 +1,4 @@
-package v2;
+package v3;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-///Okay everything works except the border and i think the scanned objects 
-///are a little broken
+///THIS SHIT IS UNDER CONSTRUCTION DO NOT USE and its all untested
 @SuppressWarnings("serial")
 public class UI extends JFrame {
     private XYSeries series;
@@ -220,7 +219,6 @@ public class UI extends JFrame {
                     else if (s.equals("done")) {
                     	this.statusUpdate.setText("cyBot waiting...");
                     }
-
                     else if(s.equals("start objects")) {
                     	handleObjects(reader); 
                     }
