@@ -194,6 +194,54 @@ void oi_update(oi_t *self)
                           // transmitting/receiving min wait time=15ms
 }
 
+/*
+ * updates distance traveled, angle, bump, and cliff detection instead of the entire sensor list
+ * uses query list instead of sensors opcode
+ * sequence : [149][number of packets][packet id 1][packet id n..]
+ * in this case: [149][5][7][29][30][43][44]
+ *     [bump 1 byte] [cliff front left signal 2 bytes] [cliff front right signal 2 bytes] [left encoder count 2] [right encoder count 2]
+ *     total size: 9 bytes (as opposed to 80 sent through uart)
+ *     //left encoder counts are used instead of angle and distance packets because of calculation error. Manually calculated instead.
+ */
+void oi_update_minimal(oi_t *self) {
+    uint8_t sensorBuffer[2]; //max size 2 bytes per
+
+    oi_uartSendChar(149);
+    oi_uartSendChar(5);
+    oi_uartSendChar(7);
+    oi_uartSendChar(29);
+    oi_uartSendChar(30);
+    oi_uartSendChar(43);
+    oi_uartSendChar(44);
+
+    sensorBuffer[0] = oi_uartReceive();
+    self->bumpLeft = !!(sensorBuffer[0] & 0x02);
+    self->bumpRight = (sensorBuffer[0] & 0x01);
+
+    //high byte comes in first for the rest of these
+    sensorBuffer[0] = oi_uartReceive();
+    sensorBuffer[1] = oi_uartReceive();
+    self->cliffFrontLeftSignal = (sensorBuffer[0] << 8) | (sensorBuffer[1]);
+
+    sensorBuffer[0] = oi_uartReceive();
+    sensorBuffer[1] = oi_uartReceive();
+    self->cliffFrontRightSignal = (sensorBuffer[0] << 8) | (sensorBuffer[1]);
+
+    sensorBuffer[0] = oi_uartReceive();
+    sensorBuffer[1] = oi_uartReceive();
+    self->leftEncoderCount = (sensorBuffer[0] << 8) | (sensorBuffer[1]);
+
+    sensorBuffer[0] = oi_uartReceive();
+    sensorBuffer[1] = oi_uartReceive();
+    self->rightEncoderCount = (sensorBuffer[0] << 8) | (sensorBuffer[1]);
+
+    //these are calculated from encoder counts
+    self->distance = oi_getDistance(self);
+    self->angle = oi_getDegrees(self);
+
+   // timer_waitMillis(20);
+}
+
 void oi_parsePacket(oi_t *self, uint8_t packet[])
 {
     self->wheelDropLeft = !!(packet[0] & 0x08);

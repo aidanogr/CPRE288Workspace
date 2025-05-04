@@ -47,15 +47,14 @@ double move_forward(double distance_mm) { // dist in mm
         distance_mm *= -1;
     }
 
-    oi_update(sensor_data);
+    oi_update_minimal(sensor_data);
     double sum = 0;
     char buffer[100];
     oi_setWheels(MOVE_FORWARD_SPEED * dir, MOVE_FORWARD_SPEED * dir);
 
 
     while (sum < distance_mm) {
-        oi_update(sensor_data);
-        lcd_printf("%lf", sum);
+        oi_update_minimal(sensor_data);
 
         if(dir > 0 && (sensor_data->bumpRight == 1 || sensor_data->bumpLeft == 1)) {
             oi_setWheels(0, 0);
@@ -82,7 +81,6 @@ double move_forward(double distance_mm) { // dist in mm
         }
 
         sum += dir * sensor_data->distance;
-        timer_waitMillis(10);
     }
 
     oi_setWheels(0,0); //stop
@@ -103,7 +101,7 @@ void turn_left(double degrees){
 
     oi_setWheels(MAXIMUM_ROTATIONAL_VELOCITY, -MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
-        oi_update(sensor_data);
+        oi_update_minimal(sensor_data);
         sum += absoluteVal(sensor_data -> angle);
     }
 
@@ -121,7 +119,7 @@ void turn_right(double degrees){
 
     oi_setWheels(-MAXIMUM_ROTATIONAL_VELOCITY, MAXIMUM_ROTATIONAL_VELOCITY);
     while(sum < degrees-ANGLE_OFFSET) {
-        oi_update(sensor_data);
+        oi_update_minimal(sensor_data);
         sum += absoluteVal(sensor_data -> angle);
     }
 

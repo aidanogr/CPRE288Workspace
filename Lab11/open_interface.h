@@ -145,6 +145,8 @@ void oi_close();
 ///Update sensor data
 void oi_update(oi_t *self);
 
+void oi_update_minimal(oi_t *self);
+
 /// \brief Set the LEDS on the Create
 /// \param play_led 0=off, 1=on
 /// \param advance_led 0=off, 1=on
