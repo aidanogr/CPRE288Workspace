@@ -29,6 +29,7 @@ public class MapPanel extends JPanel{
     private int cyBotAngle_degrees;
     private BufferedImage arrow;
     private ArrayList<BumpedObject> bumpedObjects;
+    private ArrayList<Calculated_ScannedObject> scannedObjs;
    
     
     // === Constructors ===
@@ -41,6 +42,8 @@ public class MapPanel extends JPanel{
 			 arrow = ImageIO.read(new File("arrow.png"));
 		 } catch(Exception ignore) {System.out.println("arrow png not found"); }
 		 bumpedObjects = new ArrayList<BumpedObject>(3);
+		 scannedObjs = new ArrayList<Calculated_ScannedObject>(30);
+
 	}
 	
 	private class PointDouble {
@@ -64,6 +67,19 @@ public class MapPanel extends JPanel{
 		}
 	}
 	
+	private class Calculated_ScannedObject {
+		public int object_center_x;
+		public int object_center_y;
+		public int width;
+		
+		public Calculated_ScannedObject(int object_center_x, int object_center_y, int width) {
+			this.object_center_x = object_center_x;
+			this.object_center_y = object_center_y;
+			this.width = width;
+			
+		}
+	}
+
 	//called by repaint()
 	@Override
 	protected void paintComponent(Graphics g) {
@@ -87,7 +103,14 @@ public class MapPanel extends JPanel{
 		for(BumpedObject b : bumpedObjects) {
 			drawBumpedObject(g, b);
 		}
+		
+		//Draw Scanned Objects 
+		g.setColor(Color.yellow);
+		for(Calculated_ScannedObject o : scannedObjs) {
+			g.fillOval(o.object_center_x, o.object_center_y, o.width, o.width);
+		}
 	}
+
 
 	private void drawBumpedObject(Graphics g, BumpedObject b) {
 		Graphics2D g2d = (Graphics2D) g;
@@ -98,6 +121,7 @@ public class MapPanel extends JPanel{
 				centimetersToPixel((int) b.width), centimetersToPixel((int) b.width));
 		g2d.setTransform(old);
 	}
+
 
 	//draws arrow ontop of cybot an n degrees (cybot angle)
     private void drawArrow(Graphics g) {
@@ -184,8 +208,37 @@ public class MapPanel extends JPanel{
 	}
 
 	public void addObjects(ArrayList<ScannedObject> objects) {
-		// TODO Auto-generated method stub
-		
+		for(ScannedObject o : objects) {
+			int start_angle = cyBotAngle_degrees + 90 - o.startAngle;
+			int end_angle = cyBotAngle_degrees + 90 - o.endAngle;
+			double mid_angle = ( start_angle + end_angle ) /2;
+			double face_of_cybot_x = (cyBotPosition_centimeters.x)/CENTIMETERS_PER_PIXEL + (CYBOT_DIAMETER_PIXELS/2)* Math.cos(Math.toRadians(cyBotAngle_degrees));
+			double face_of_cybot_y = (cyBotPosition_centimeters.y)/CENTIMETERS_PER_PIXEL + (CYBOT_DIAMETER_PIXELS/2) * Math.sin(Math.toRadians(cyBotAngle_degrees));
+			double distance_to_center_of_object = o.distance + o.width/2;
+			
+			int object_center_x;
+			int object_center_y;
+			
+			//i literally have no idea if this actually works or not lol trig hard and my cybot died
+			if(mid_angle >0) {
+				object_center_x = (int) (Math.cos(-mid_angle) * distance_to_center_of_object /CENTIMETERS_PER_PIXEL + face_of_cybot_x);
+				object_center_y = (int)( Math.sin(mid_angle) * distance_to_center_of_object / CENTIMETERS_PER_PIXEL + face_of_cybot_y);
+
+			}
+			else {
+				
+				object_center_x = (int) (Math.sin(mid_angle) * distance_to_center_of_object /CENTIMETERS_PER_PIXEL + face_of_cybot_x);
+				object_center_y = (int)( -(Math.cos(mid_angle)) * distance_to_center_of_object / CENTIMETERS_PER_PIXEL + face_of_cybot_y);
+			}
+			
+			
+			int object_width_pixels = (int) (o.width /CENTIMETERS_PER_PIXEL);
+			System.out.println("start_angle: " + start_angle + " end angle: " + end_angle + " mid_angle: " + mid_angle + " face-x: " + face_of_cybot_x + 
+					"\n face y: " + face_of_cybot_y + "object center: " + object_center_x + " " + object_center_y );
+
+			scannedObjs.add(new Calculated_ScannedObject(object_center_x, object_center_y, object_width_pixels));
+		}
+		repaint();
 	}
 
 }

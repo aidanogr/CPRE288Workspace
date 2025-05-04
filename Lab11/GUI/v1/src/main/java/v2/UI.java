@@ -123,7 +123,8 @@ public class UI extends JFrame {
     
 
 
-    private void parseObjectData(String s) {
+    @SuppressWarnings("unchecked")
+	private void parseObjectData(String s) {
     	ArrayList<Integer> splits = new ArrayList<Integer>(20);
     	
     	for(int i = 0; i < s.length(); i++) {
@@ -142,8 +143,8 @@ public class UI extends JFrame {
 
     	ScannedObject newObject = new ScannedObject(startAngle, endAngle, distance, width);
     	objects.add(newObject);
-    	mapPanel.addObjects(objects);
-    	objects.removeAll(objects);
+    	
+    	//objects.removeAll(objects);
 
     }
     
@@ -154,6 +155,7 @@ public class UI extends JFrame {
 			while((s = reader.readLine()) != null) {
 				if(s.equals("end objects")) {
 					for(ScannedObject o : objects) {
+						mapPanel.addObjects((ArrayList<ScannedObject>) objects.clone());	
 						System.out.println("\n" + o.startAngle + " " + o.endAngle + " " + o.distance + " " + o.width);
 					}
 					return;
@@ -232,11 +234,10 @@ public class UI extends JFrame {
     }
 
     private void handleCyBotError(String error) {
-		// TODO Auto-generated method stub
 		if(error.contains("bump")) {
 			int split = error.indexOf(',');
 			if(error.substring(split+1).contains("eft")) {
-				mapPanel.cyBot_hitObject(true);
+				mapPanel.cyBot_hitObject(true);	//boolean is if hit left or right
 			}
 			else {
 				mapPanel.cyBot_hitObject(false);
@@ -249,7 +250,7 @@ public class UI extends JFrame {
 
 
 
-    //THIS ONLY WORKS BETWEEN [0,128]
+    //THIS ONLY WORKS BETWEEN [0,255]
 	//this sends command in the form [char opcode][char param1][char param2]. Inputs are integers (except opcode
 	// and are converted to chars before sent (i.e w,100,0)
     private void sendCommand() throws InterruptedException, IOException {
