@@ -15,7 +15,8 @@
 #define MOVE_FORWARD_SPEED 350
 #define MAXIMUM_ROTATIONAL_VELOCITY 15
 #define MINIMUM_ROTATIONAL_VELOCITY 10
-#define ANGLE_OFFSET 5
+#define ANGLE_OFFSET 0
+#define CLIFF_SENSOR_BORDER 2650
 
 char buffer[20];
 oi_t *sensor_data;
@@ -70,7 +71,7 @@ double move_forward(double distance_mm) { // dist in mm
             move_forward(-50);
             return sum;
 
-        } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > 2000)) {
+        } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > CLIFF_SENSOR_BORDER)) {
             oi_setWheels(0, 0);
             sprintf(buffer, "moved,%d\n", (int) sum * dir);
             uart_sendStr(buffer);
@@ -124,8 +125,7 @@ void turn_right(double degrees){
         sum += absoluteVal(sensor_data -> angle);
     }
 
-    oi_setWheels(0,0);
-    oi_update(sensor_data);
+    oi_setWheels(0,0);    oi_update(sensor_data);
 
     sprintf(buffer, "turned,%d\n", (int) sum);
     uart_sendStr(buffer);

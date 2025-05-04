@@ -13,7 +13,7 @@
 
 
 
-num_objects;
+int num_objects;
 obj_t object_array[10];
 
 void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
@@ -63,7 +63,7 @@ int main() {
 
     while(1) {
         //wait for command from uart
-        while(Interrupt_Ready != 1) { lcd_printf("%d", copy); }
+        while(Interrupt_Ready != 1) { lcd_printf("%d", sensor_data->cliffFrontLeftSignal); oi_update(sensor_data); }
         lcd_printf("2");
         execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
         lcd_printf("5");

@@ -16,6 +16,7 @@
 #include "uart-interrupt.h"
 #include <string.h>
 
+oi_t *sensor_data;
 void movement_init();
 void movement_free();
 double move_forward(double distance_millimeters);   //millimeters
