@@ -10,6 +10,7 @@
 #include "ping.h"
 #include "servo.h"
 #include "button.h"
+#include "music.h"
 
 
 
@@ -57,6 +58,26 @@ int main() {
    // callibrate_servo();
     servo_set_callibration(-84, 232);
     num_objects = 0;
+
+
+
+//    lcd_printf("1");
+//
+//    unsigned char notes[] = {31, 33, 35, 36, 38, 40, 42, 43};
+//    unsigned char durations[] = {32, 32, 32, 32, 32, 32, 32, 32};
+//
+//    load_song(1, 8, (unsigned char *) notes, (unsigned char *) durations);
+//    play_song(1);
+//
+//    return 0;
+
+
+
+
+
+
+
+
 
 //    oi_setWheels(0, 0);
 

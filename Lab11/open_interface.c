@@ -381,8 +381,7 @@ void oi_setWheels(int16_t right_wheel, int16_t left_wheel)
 /// \param An integer value from 1 - 16 indicating the number of notes in the
 /// sequence \param A pointer to a sequence of notes stored as integer values
 /// \param A pointer to a sequence of durations that correspond to the notes
-void oi_loadSong(int song_index, int num_notes, unsigned char *notes, unsigned char *duration)
-{
+void oi_loadSong(int song_index, int num_notes, unsigned char *notes, unsigned char *duration) {
     int i;
     oi_uartSendChar(OI_OPCODE_SONG);
     oi_uartSendChar(song_index);
