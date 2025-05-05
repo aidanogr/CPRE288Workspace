@@ -11,11 +11,15 @@
 #include "servo.h"
 #include "button.h"
 #include "music.h"
+#include "bno.h"
 
 
 
 int num_objects;
 obj_t object_array[10];
+bno_calib_t bno_calibration = {0xB, 0x2, 0xFFF7, 0x3EC, 0xFE52, 0xF8B5, 0xFFFE, 0xFFFE, 0xFFFF, 0x3E8, 0x2EF};
+
+
 
 void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
     //static int num_recieved = 0;
@@ -61,15 +65,23 @@ int main() {
 
 
 
-//    lcd_printf("1");
-//
-//    unsigned char notes[] = {31, 33, 35, 36, 38, 40, 42, 43};
-//    unsigned char durations[] = {32, 32, 32, 32, 32, 32, 32, 32};
-//
-//    load_song(1, 8, (unsigned char *) notes, (unsigned char *) durations);
-//    play_song(1);
-//
-//    return 0;
+
+    bno_t *bno = bno_alloc();
+    bno_initCalib(&bno_calibration);
+
+    bno_update(bno);
+    float target = bno->euler.heading / 16.;
+
+    while(1) {
+        bno_update(bno);
+        target = bno->euler.heading / 16.;
+        lcd_printf("%lf", target);
+        timer_waitMillis(500);
+    }
+
+
+
+
 
 
 
@@ -142,6 +154,8 @@ int main() {
 
 
 }
+
+
 
 
 
