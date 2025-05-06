@@ -313,7 +313,7 @@ public class MapPanel extends JPanel{
 			double face_of_cybot_y = (cyBotPosition_centimeters.y)/CENTIMETERS_PER_PIXEL + (CYBOT_DIAMETER_PIXELS/2) * Math.sin(Math.toRadians(cyBotAngle_degrees));
 			double distance_to_center_of_object = o.distance + o.width/2;
 			
-			System.out.println("width:" + o.width);
+			System.out.println("width:" + o.width + " distance:" + o.distance);
 			int object_width_pixels = (int) (o.width /CENTIMETERS_PER_PIXEL);
 //			System.out.println("start_angle: " + start_angle + " end angle: " + end_angle + " mid_angle: " + mid_angle + " face-x: " + face_of_cybot_x + 
 //					"\n face y: " + face_of_cybot_y + "object center: " + object_center_x + " " + object_center_y );
