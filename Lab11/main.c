@@ -50,6 +50,10 @@ void point_cybot(int degrees) {
 void callibrate_imu() {
 
 
+
+}
+
+void initialize_imu() {
     //lcd_printf("%lf", 5.3);
     bno = bno_alloc();
     bno_initCalib(&bno_calibration);
@@ -58,7 +62,6 @@ void callibrate_imu() {
 
     return;
 }
-
 
 /**
  * handles command from uart interrupt
@@ -80,11 +83,13 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
     } else if((char) opcode == 'd') {
         turn_right((double) param1);
     } else if((char) opcode == 'b') {
-        point_cybot(0);
+        point_cybot();
     }
 
     uart_sendStr("done\n");
 }
+
+
 
 int main() {
 
@@ -94,30 +99,48 @@ int main() {
     timer_init();
     button_init();
     lcd_init();
-    lcd_printf("%d", 1);
-    timer_waitMillis(1000);
     uart_interrupt_init();
     cyBOT_init_scan();
+    initialize_servo();
     num_objects = 0;    //used for scan_range()
+
+    initialize_imu();
+    short last_imu_angle = bno->euler.heading; //IMU angle for gui changes
+    int last_angle_difference = 0;
+    int delta_angle = 0;
+    char str_buffer[20];
+
+    int button_pressed = 0;
 
     // === CALIBRATIONS ===
     // callibrate_servo();
     servo_set_callibration(-84, 232);
-    callibrate_imu();
-
+    //callibrate_imu();
 
 
     // === MAIN FUNCTION LOOP ===
     while(1) {
 
-        //wait for uart interrupt handler to populate Interrupt_Result
-        while(Interrupt_Ready != 1) { lcd_printf("%d", sensor_data->cliffFrontLeftSignal); oi_update(sensor_data); }
+        //wait for uart interrupt handler to populate Interrupt_Result and send change in angle since the start to gui
+        //ToDo make sure cliff sensors are properly set for test field
+        while(Interrupt_Ready != 1) {
+            bno_update(bno);
+            //lcd_printf("%hd", bno->euler.heading /16 );
+            delta_angle = last_imu_angle/16 - bno->euler.heading /16;
+            if(delta_angle > 0 || delta_angle < 0) {
+                last_imu_angle = bno->euler.heading;
+                sprintf(str_buffer, "turned,%d\n", -delta_angle);
+                uart_sendStr(str_buffer);
+            }
+
+        }
 
         execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16),
                         (uint8_t) ((Interrupt_Result & 0xFF00) >> 8),
                         (uint8_t) (Interrupt_Result & 0xFF));
 
         reset_Interrupt();
+        bno_update(bno);
 
     }
 

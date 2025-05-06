@@ -108,8 +108,6 @@ void turn_left(double degrees){
     oi_setWheels(0,0);
     oi_update(sensor_data);
 
-    sprintf(buffer, "turned,%d\n", (int) (sum * -1));
-    uart_sendStr(buffer);
 }
 
 void turn_right(double degrees){
@@ -125,8 +123,6 @@ void turn_right(double degrees){
 
     oi_setWheels(0,0);    oi_update(sensor_data);
 
-    sprintf(buffer, "turned,%d\n", (int) sum);
-    uart_sendStr(buffer);
 }
 
 void turn_right_no_uart(double degrees){

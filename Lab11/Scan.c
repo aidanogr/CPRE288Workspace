@@ -39,10 +39,21 @@ void cyBOT_Scan(int angle, cyBOT_Scan_t* scan_data) {
     timer_waitMillis(50);
 }
 
+//moving the servo to the same spot 3 times in a row seems to be causing the issue (for some reason)
+void cyBOT_Scan_no_servo(cyBOT_Scan_t* scan_data) {
+    //passing null does nothing here
+    if(scan_data == NULL) {
+        return;
+    }
+
+    //store raw ir distance (for compatibility with older code)
+    scan_data->IR_raw_val = adc_read();
+
+    //store ping distance in meter
+    scan_data->sound_dist = ping_get_cm();
+}
 
 
-
-//uart debug is overrated we ball
 void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_size) {
     cyBOT_Scan_t *scan_data = (cyBOT_Scan_t *) calloc(1, sizeof(cyBOT_Scan_t));
     cyBOT_Scan(0, scan_data);
@@ -58,20 +69,22 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
     uart_sendStr("start scan\n");
     while(min_angle < max_angle) {
             sum = 0;
-            for(i = 0; i < 3; i++) {
-                timer_waitMillis(20);
-                cyBOT_Scan(min_angle, scan_data);
+            timer_waitMillis(100);
+            servo_move_to(convert_degrees_to_pulse_width(min_angle));
+            for(i = 0; i < 5; i++) {
+                timer_waitMillis(10);
+                cyBOT_Scan_no_servo(scan_data);
                 sum += scan_data->IR_raw_val;
             }
 
             if(!isDetecting) {
-                if(sum/3 > SIG_DIST) {
+                if(sum/5 > SIG_DIST) {
                     isDetecting = 1;
                     object_array[num_objects].start_angle = min_angle;
                 }
 
             } else {
-                if(sum/3 < SIG_DIST) {
+                if(sum/5 < SIG_DIST) {
                     isDetecting = 0;
                     object_array[num_objects].end_angle = min_angle;
                     num_objects++;
@@ -80,7 +93,7 @@ void scan_range(int min_angle, int max_angle, obj_t object_array[], int *arr_siz
 
 
             char msg[100];
-            sprintf(msg, "%d,%d\n", min_angle, sum/3);
+            sprintf(msg, "%d,%d\n", min_angle, sum/5);
             uart_sendStr(msg);
             min_angle+=2;
         }
