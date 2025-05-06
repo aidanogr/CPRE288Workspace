@@ -128,3 +128,16 @@ void turn_right(double degrees){
     sprintf(buffer, "turned,%d\n", (int) sum);
     uart_sendStr(buffer);
 }
+
+void turn_right_no_uart(double degrees){
+    oi_update(sensor_data);
+    double sum = 0;
+
+    oi_setWheels(-MAXIMUM_ROTATIONAL_VELOCITY, MAXIMUM_ROTATIONAL_VELOCITY);
+    while(sum < degrees-ANGLE_OFFSET) {
+        oi_update_minimal(sensor_data);
+        sum += absoluteVal(sensor_data -> angle);
+    }
+
+    oi_setWheels(0,0);    oi_update(sensor_data);
+}

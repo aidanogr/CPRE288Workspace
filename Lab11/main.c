@@ -14,19 +14,69 @@
 #include "bno.h"
 
 
-
+//global vars for scan_range()
 int num_objects;
 obj_t object_array[10];
+
 bno_calib_t bno_calibration = {0xB, 0x2, 0xFFF7, 0x3EC, 0xFE52, 0xF8B5, 0xFFFE, 0xFFFE, 0xFFFF, 0x3E8, 0x2EF};
 
 
+/**
+ * Points to right side of field before entering main function loop
+ *  so gui direction lines up with actual cyBot direction
+ *  @param degree to point cybot towards; ANGLE IS NOT THE SAME AS OI ANGLE, IMU VALUES ONLY
+ */
+void point_cybot(int degrees) {
+    bno_t *bno = bno_alloc();
+    bno_initCalib(&bno_calibration);
 
+    bno_update(bno);
+    float target = bno->euler.heading / 16.;
+
+    oi_setWheels(-100, 100);
+    while( (target > (degrees + 1)) || (target < (degrees - 1)) ) {
+        bno_update(bno);
+        target = bno->euler.heading / 16.;
+    }
+    oi_setWheels(0, 0);
+    bno_free(bno);
+    return;
+
+}
+
+
+/*
+ * Prints off imu angles. Set desired angle to start with point_cybot(degrees);
+ * Break from function by holding button 4 (frees struct)
+ */
+void callibrate_imu() {
+    button_init();
+    uint8_t button_pressed = 0;
+
+    bno_t *bno = bno_alloc();
+    bno_initCalib(&bno_calibration);
+
+    bno_update(bno);
+    float target = bno->euler.heading / 16.;
+
+    while(button_pressed != 4) {
+        button_pressed = button_getButton();
+        bno_update(bno);
+        target = bno->euler.heading / 16.;
+        lcd_printf("%lf", target);
+        timer_waitMillis(500);
+    }
+
+    bno_free(bno);
+    return;
+}
+
+
+/**
+ * handles command from uart interrupt
+ */
 void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
-    //static int num_recieved = 0;
 
-    //lcd_printf("%c,%.2f,%d", opcode, (double) ((int) param1), (int)param2);
-    lcd_printf("3");
-    //move_forward(200);
     if((char) opcode == 'w') {
         move_forward(((double) param1) * ((double) param2));
 
@@ -43,114 +93,41 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
         turn_right((double) param1);
     }
 
-    lcd_printf("4");
-
     uart_sendStr("done\n");
 }
 
 int main() {
 
-
+    // === INITIALIZATIONS ===
     movement_init();
-
     timer_init();
     button_init();
     lcd_init();
     uart_interrupt_init();
     cyBOT_init_scan();
-  //  cyBOT_init_Scan(0b100);
-   // callibrate_servo();
+    num_objects = 0;    //used for scan_range()
+
+    // === CALIBRATIONS ===
+    // callibrate_servo();
     servo_set_callibration(-84, 232);
-    num_objects = 0;
+    // callibrate_imu();
+    point_cybot(90);
 
 
 
-
-    bno_t *bno = bno_alloc();
-    bno_initCalib(&bno_calibration);
-
-    bno_update(bno);
-    float target = bno->euler.heading / 16.;
-
+    // === MAIN FUNCTION LOOP ===
     while(1) {
-        bno_update(bno);
-        target = bno->euler.heading / 16.;
-        lcd_printf("%lf", target);
-        timer_waitMillis(500);
-    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-//    oi_setWheels(0, 0);
-
-
-    while(1) {
-        //wait for command from uart
+        //wait for uart interrupt handler to populate Interrupt_Result
         while(Interrupt_Ready != 1) { lcd_printf("%d", sensor_data->cliffFrontLeftSignal); oi_update(sensor_data); }
-        lcd_printf("2");
-        execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16), (uint8_t) ((Interrupt_Result & 0xFF00) >> 8), (uint8_t) (Interrupt_Result & 0xFF) );
-        lcd_printf("5");
+
+        execute_command((uint8_t) ((Interrupt_Result & 0xFF0000) >> 16),
+                        (uint8_t) ((Interrupt_Result & 0xFF00) >> 8),
+                        (uint8_t) (Interrupt_Result & 0xFF));
+
         reset_Interrupt();
-        lcd_printf("6");
+
     }
-    //move_forward(sensor_data, 80);
-    //scan_range(0,180, object_array, &num_objects);
-
-/*
-    while(1) {
-        if(round > 1) {
-            min_angle = 45;
-            max_angle = 135;
-        }
-
-        scan_range(min_angle, max_angle, object_array, &num_objects);
-
-        if(num_objects == 0) {
-            lcd_printf("We are NOT finding this mf\n");
-            break;
-        }
-
-        int skinniest_index = 0;
-        for(i = 1; i < num_objects; i++) {
-            if(object_array[i].width < object_array[skinniest_index].width) { skinniest_index = i; }
-        }
-
-        // found skinniest_index, turn to it with servo (find angle)
-        int angle_of_skinniest_object = (object_array[skinniest_index].start_angle + object_array[skinniest_index].end_angle) / 2;
-        cyBOT_Scan(angle_of_skinniest_object, NULL);
-        lcd_printf("deg of skinniest: %d\n", angle_of_skinniest_object);
-
-        //turn to angle with cybot      //TODO What does this do?
-        if(angle_of_skinniest_object < 90) {
-            turn_right(sensor_data, 90 - angle_of_skinniest_object - 3);
-        } else {
-            turn_left(sensor_data, angle_of_skinniest_object - 90 - 3);
-        }
-
-        int go_this_far = object_array[skinniest_index].distance * 10 - 190;    //TODO where does this value come from
-        int went_this_far = move_to_obj(sensor_data, go_this_far);
-        if(went_this_far >= go_this_far) { break; }                             //TODO i dont know how this termination works
-
-
-        round++;
-    }
-
-
-
-
-*/
-
-
 
 
 }

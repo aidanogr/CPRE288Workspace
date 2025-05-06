@@ -14,7 +14,8 @@ int convert_degrees_to_pulse_width(int degrees) {
     int converted_pulse;
     if(isCallibrated == 1) {
         //TODO what the fuck?
-        converted_pulse = ( ((pulse_width_end/180.0 + 1)/1000)*16000000 - ((pulse_width_start/180.0 + 1)/1000)*16000000)*(degrees/180.0) + ((pulse_width_start/180.0 + 1)/1000)*16000000;
+        converted_pulse = ( ((pulse_width_end/180.0 + 1)/1000)*16000000 - ((pulse_width_start/180.0 + 1)/1000)*16000000)
+                *(degrees/180.0) + ((pulse_width_start/180.0 + 1)/1000)*16000000;
     }
     else {
         converted_pulse = (((degrees)/180.0 + 1)/1000)*16000000;
@@ -135,7 +136,7 @@ void callibrate_servo() {
     }
     while(button_pressed==4){button_pressed=button_getButton();timer_waitMillis(100);}
     pulse_width_end = pulse_width;
-    lcd_printf("pulse_width_start = %d, end pulse_width_end = %d\n Set these values in main\n Press 4 to continue",
+    lcd_printf("min = %d, \nmax = %d \nPress 4 to continue",
                pulse_width_start, pulse_width_end);
     while(button_pressed != 4) {}
 
