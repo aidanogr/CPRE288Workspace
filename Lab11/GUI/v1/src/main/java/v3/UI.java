@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 
-///THIS SHIT IS UNDER CONSTRUCTION DO NOT USE and its all untested
 @SuppressWarnings("serial")
 public class UI extends JFrame {
     private XYSeries series;
@@ -154,10 +153,8 @@ public class UI extends JFrame {
     	try {
 			while((s = reader.readLine()) != null) {
 				if(s.equals("end objects")) {
-					for(ScannedObject o : objects) {
-						mapPanel.addObjects((ArrayList<ScannedObject>) objects.clone());	
-						System.out.println("\n" + o.startAngle + " " + o.endAngle + " " + o.distance + " " + o.width);
-					}
+					mapPanel.addObjects((ArrayList<ScannedObject>) objects.clone());	
+					objects.removeAll(objects);
 					return;
 				}
 				else {
@@ -171,7 +168,12 @@ public class UI extends JFrame {
     	
     }
     
-    
+    /**
+     * notes:
+     * print scanned objects over bumped.
+     * print scanned object data every time
+     * 
+     */
     
     
     private void connectAndListen() {
@@ -243,7 +245,13 @@ public class UI extends JFrame {
 			}
 		}
 		else if(error.contains("boundary")) {
-			mapPanel.cyBot_hitBoundary();
+			int split = error.indexOf(',');
+			if(error.substring(split+1).contains("eft")) {
+				mapPanel.cyBot_hitBoundary(true);	//boolean is if hit left or right
+			}
+			else {
+				mapPanel.cyBot_hitBoundary(false);
+			}		
 		}
 	}
 

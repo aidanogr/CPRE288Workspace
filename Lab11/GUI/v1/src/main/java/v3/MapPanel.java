@@ -14,8 +14,8 @@ public class MapPanel extends JPanel{
 	// === Constants ===
     private static final int GRID_WIDTH = 10;
     private static final int FIELD_WIDTH_CM = 427*2;
-    private static final int FIELD_HEIGHT_CM = 244*2;
-    private static final int GRID_SCALE = 5; // 1 grid square = 5 cm
+    private static final int FIELD_HEIGHT_CM = 427*2;
+    private static final int GRID_SCALE = 8; // 1 grid square = 5 cm	
     private static final double CENTIMETERS_PER_PIXEL = (1.0*GRID_SCALE) / (1.0*GRID_WIDTH);
     private static final int FIELD_WIDTH_GRIDS = FIELD_WIDTH_CM / GRID_SCALE;
     private static final int FIELD_HEIGHT_GRIDS = FIELD_HEIGHT_CM / GRID_SCALE;
@@ -30,6 +30,7 @@ public class MapPanel extends JPanel{
     private BufferedImage arrow;
     private ArrayList<BumpedObject> bumpedObjects;
     private ArrayList<Calculated_ScannedObject> scannedObjs;
+    private ArrayList<BorderPoint> BorderObjs;
    
     
     // === Constructors ===
@@ -43,6 +44,7 @@ public class MapPanel extends JPanel{
 		 } catch(Exception ignore) {System.out.println("arrow png not found"); }
 		 bumpedObjects = new ArrayList<BumpedObject>(3);
 		 scannedObjs = new ArrayList<Calculated_ScannedObject>(30);
+		 BorderObjs = new ArrayList<BorderPoint>();
 
 	}
 	
@@ -67,6 +69,18 @@ public class MapPanel extends JPanel{
 		}
 	}
 	
+	private class BorderPoint {
+		PointDouble faceOfCybot;
+		boolean hitLeft;
+		int angleOfCybot;
+		
+		public BorderPoint(PointDouble p, boolean hitLeft, int angleOfCybot) {
+			this.faceOfCybot = p;
+			this.hitLeft = hitLeft;
+			this.angleOfCybot = angleOfCybot;
+		}
+	}
+
 	private class Calculated_ScannedObject {
 	
 		PointDouble cyBotFace_pixels;
@@ -110,6 +124,76 @@ public class MapPanel extends JPanel{
 		for(Calculated_ScannedObject o : scannedObjs) {
 			drawScannedObject(g, o);
 		}
+		
+		//Draw Border objcts
+		g.setColor(Color.green);
+		for(BorderPoint p : BorderObjs) {
+			drawBorderPoint(g, p);
+		}
+	}
+
+	//which border side was hit
+	public enum Locations {
+		NORTH, SOUTH, EAST, WEST
+	}
+
+	private Locations findSideHit(BorderPoint p) {
+		Locations location = Locations.NORTH;
+		//checks each quadrant and side of cybot hit to determine which border was hit
+		if(p.angleOfCybot > 0 && p.angleOfCybot < 90) {
+			if(p.hitLeft) {
+				location = Locations.EAST;
+			}
+			else {
+				location = Locations.SOUTH;
+			}
+		}
+		else if(p.angleOfCybot > 90 && p.angleOfCybot < 180) {
+			if(p.hitLeft) {
+				location = Locations.SOUTH;
+			}
+			else {
+				location = Locations.WEST;
+			}
+		}
+		else if(p.angleOfCybot > 180 && p.angleOfCybot < 270) {
+			if(p.hitLeft) {
+				location = Locations.WEST;
+			}
+			else {
+				location = Locations.NORTH;
+			}
+		}
+		else if(p.angleOfCybot > 270 && p.angleOfCybot < 360) {
+			if(p.hitLeft) {
+				location = Locations.NORTH;
+			}
+			else {
+				location = Locations.EAST;
+			}
+		}
+		//can p.angle be greater than 360? the world may never know
+		return location;
+	}
+
+	private void drawBorderPoint(Graphics g, BorderPoint p) {
+		Locations location = findSideHit(p);
+		//System.out.println(location);
+		switch (location) {
+			case NORTH:
+				g.fillRect((int) (p.faceOfCybot.x-GRID_WIDTH), (int) p.faceOfCybot.y-GRID_WIDTH/2, GRID_WIDTH*2, GRID_WIDTH);
+				break;
+			case EAST:
+				g.fillRect((int) p.faceOfCybot.x, (int) p.faceOfCybot.y - GRID_WIDTH, GRID_WIDTH, GRID_WIDTH*2);
+				break;
+			case SOUTH:
+				g.fillRect((int) (p.faceOfCybot.x-GRID_WIDTH), (int) p.faceOfCybot.y, GRID_WIDTH*2, GRID_WIDTH);
+				break;
+			case WEST:
+				g.fillRect((int) (p.faceOfCybot.x-GRID_WIDTH/2), (int) p.faceOfCybot.y-GRID_WIDTH, GRID_WIDTH, GRID_WIDTH*2);
+				break;
+		}
+		repaint();
 	}
 
 	private void drawScannedObject(Graphics g, Calculated_ScannedObject o) {
@@ -117,7 +201,7 @@ public class MapPanel extends JPanel{
 		
 		AffineTransform old = g2d.getTransform();
 		g2d.rotate(Math.toRadians(o.rotation_angle_degrees), o.cyBotFace_pixels.x, o.cyBotFace_pixels.y);
-		System.out.println(o.rotation_angle_degrees + " " + o.distanceFromCybot_pixels + " " + o.width + " " + o.cyBotFace_pixels.x + " " + o.cyBotFace_pixels.y);
+		//System.out.println(o.rotation_angle_degrees + " " + o.distanceFromCybot_pixels + " " + o.width + " " + o.cyBotFace_pixels.x + " " + o.cyBotFace_pixels.y);
 		g2d.fillOval((int) ( o.cyBotFace_pixels.x  + o.distanceFromCybot_pixels) , (int) (o.cyBotFace_pixels.y - (o.width/2)), o.width, o.width);
 		g2d.setTransform(old);
 
@@ -214,9 +298,10 @@ public class MapPanel extends JPanel{
 		repaint();
 	}
 
-	public void cyBot_hitBoundary() {
-		// TODO Auto-generated method stub
-		
+	public void cyBot_hitBoundary(boolean isLeft) {
+		BorderObjs.add(new BorderPoint(new PointDouble(cyBotPosition_centimeters.x/CENTIMETERS_PER_PIXEL,
+				cyBotPosition_centimeters.y/CENTIMETERS_PER_PIXEL),
+				isLeft, cyBotAngle_degrees));
 	}
 
 	public void addObjects(ArrayList<ScannedObject> objects) {
@@ -228,7 +313,7 @@ public class MapPanel extends JPanel{
 			double face_of_cybot_y = (cyBotPosition_centimeters.y)/CENTIMETERS_PER_PIXEL + (CYBOT_DIAMETER_PIXELS/2) * Math.sin(Math.toRadians(cyBotAngle_degrees));
 			double distance_to_center_of_object = o.distance + o.width/2;
 			
-			
+			System.out.println("width:" + o.width);
 			int object_width_pixels = (int) (o.width /CENTIMETERS_PER_PIXEL);
 //			System.out.println("start_angle: " + start_angle + " end angle: " + end_angle + " mid_angle: " + mid_angle + " face-x: " + face_of_cybot_x + 
 //					"\n face y: " + face_of_cybot_y + "object center: " + object_center_x + " " + object_center_y );
