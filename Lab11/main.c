@@ -12,14 +12,14 @@
 #include "button.h"
 #include "music.h"
 #include "bno.h"
-
+#include <stdint.h>
 
 //global vars for scan_range()
 int num_objects;
 obj_t object_array[10];
 
 bno_calib_t bno_calibration = {0xB, 0x2, 0xFFF7, 0x3EC, 0xFE52, 0xF8B5, 0xFFFE, 0xFFFE, 0xFFFF, 0x3E8, 0x2EF};
-
+bno_t *bno;
 
 /**
  * Points to right side of field before entering main function loop
@@ -27,8 +27,6 @@ bno_calib_t bno_calibration = {0xB, 0x2, 0xFFF7, 0x3EC, 0xFE52, 0xF8B5, 0xFFFE, 
  *  @param degree to point cybot towards; ANGLE IS NOT THE SAME AS OI ANGLE, IMU VALUES ONLY
  */
 void point_cybot(int degrees) {
-    bno_t *bno = bno_alloc();
-    bno_initCalib(&bno_calibration);
 
     bno_update(bno);
     float target = bno->euler.heading / 16.;
@@ -39,7 +37,7 @@ void point_cybot(int degrees) {
         target = bno->euler.heading / 16.;
     }
     oi_setWheels(0, 0);
-    bno_free(bno);
+   // bno_free(bno);
     return;
 
 }
@@ -50,24 +48,14 @@ void point_cybot(int degrees) {
  * Break from function by holding button 4 (frees struct)
  */
 void callibrate_imu() {
-    button_init();
-    uint8_t button_pressed = 0;
 
-    bno_t *bno = bno_alloc();
+
+    //lcd_printf("%lf", 5.3);
+    bno = bno_alloc();
     bno_initCalib(&bno_calibration);
 
     bno_update(bno);
-    float target = bno->euler.heading / 16.;
 
-    while(button_pressed != 4) {
-        button_pressed = button_getButton();
-        bno_update(bno);
-        target = bno->euler.heading / 16.;
-        lcd_printf("%lf", target);
-        timer_waitMillis(500);
-    }
-
-    bno_free(bno);
     return;
 }
 
@@ -91,6 +79,8 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
 
     } else if((char) opcode == 'd') {
         turn_right((double) param1);
+    } else if((char) opcode == 'b') {
+        point_cybot(0);
     }
 
     uart_sendStr("done\n");
@@ -100,9 +90,12 @@ int main() {
 
     // === INITIALIZATIONS ===
     movement_init();
+    oi_setWheels(0, 0);
     timer_init();
     button_init();
     lcd_init();
+    lcd_printf("%d", 1);
+    timer_waitMillis(1000);
     uart_interrupt_init();
     cyBOT_init_scan();
     num_objects = 0;    //used for scan_range()
@@ -110,8 +103,7 @@ int main() {
     // === CALIBRATIONS ===
     // callibrate_servo();
     servo_set_callibration(-84, 232);
-    // callibrate_imu();
-    point_cybot(90);
+    callibrate_imu();
 
 
 
