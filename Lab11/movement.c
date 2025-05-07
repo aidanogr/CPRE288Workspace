@@ -12,11 +12,12 @@
 
 //const double MOVE_FORWARD_SPEED = 350.0;
 //const double MAXIMUM_ROTATIONAL_VELOCITY = 350.0;
-#define MOVE_FORWARD_SPEED 350
-#define MAXIMUM_ROTATIONAL_VELOCITY 15
-#define MINIMUM_ROTATIONAL_VELOCITY 10
+#define MOVE_FORWARD_SPEED 200
+#define MAXIMUM_ROTATIONAL_VELOCITY 30
+#define MINIMUM_ROTATIONAL_VELOCITY 25
 #define ANGLE_OFFSET 0
-#define CLIFF_SENSOR_BORDER 2650
+#define CLIFF_SENSOR_BORDER 2700
+#define CLIFF_LOWER_BORDER 750
 
 char buffer[20];
 oi_t *sensor_data;
@@ -70,12 +71,20 @@ double move_forward(double distance_mm) { // dist in mm
             move_forward(-50);
             return sum;
 
-        } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > CLIFF_SENSOR_BORDER)) {
+        } else if(dir > 0 && (sensor_data->cliffFrontLeftSignal > CLIFF_SENSOR_BORDER || sensor_data->cliffFrontLeftSignal < CLIFF_LOWER_BORDER)) {
             oi_setWheels(0, 0);
             sprintf(buffer, "moved,%d\n", (int) sum * dir);
             uart_sendStr(buffer);
-            uart_sendStr("error,boundary\n");
-
+            uart_sendStr("error,boundary,left\n");
+            //lcd_printf("%d,%d", sensor_data->cliffFrontLeftSignal, sensor_data->cliffFrontRightSignal);
+            move_forward(-50);
+            return sum;
+        } else if(dir > 0 && (sensor_data->cliffFrontRightSignal > CLIFF_SENSOR_BORDER || sensor_data->cliffFrontRightSignal < CLIFF_LOWER_BORDER)) {
+            oi_setWheels(0, 0);
+            sprintf(buffer, "moved,%d\n", (int) sum * dir);
+            uart_sendStr(buffer);
+            uart_sendStr("error,boundary,right\n");
+            //lcd_printf("%d,%d", sensor_data->cliffFrontLeftSignal, sensor_data->cliffFrontRightSignal);
             move_forward(-50);
             return sum;
         }

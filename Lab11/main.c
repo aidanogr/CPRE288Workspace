@@ -21,37 +21,8 @@ obj_t object_array[10];
 bno_calib_t bno_calibration = {0xB, 0x2, 0xFFF7, 0x3EC, 0xFE52, 0xF8B5, 0xFFFE, 0xFFFE, 0xFFFF, 0x3E8, 0x2EF};
 bno_t *bno;
 
-/**
- * Points to right side of field before entering main function loop
- *  so gui direction lines up with actual cyBot direction
- *  @param degree to point cybot towards; ANGLE IS NOT THE SAME AS OI ANGLE, IMU VALUES ONLY
- */
-void point_cybot(int degrees) {
-
-    bno_update(bno);
-    float target = bno->euler.heading / 16.;
-
-    oi_setWheels(-100, 100);
-    while( (target > (degrees + 1)) || (target < (degrees - 1)) ) {
-        bno_update(bno);
-        target = bno->euler.heading / 16.;
-    }
-    oi_setWheels(0, 0);
-   // bno_free(bno);
-    return;
-
-}
 
 
-/*
- * Prints off imu angles. Set desired angle to start with point_cybot(degrees);
- * Break from function by holding button 4 (frees struct)
- */
-void callibrate_imu() {
-
-
-
-}
 
 void initialize_imu() {
     //lcd_printf("%lf", 5.3);
@@ -82,8 +53,6 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
 
     } else if((char) opcode == 'd') {
         turn_right((double) param1);
-    } else if((char) opcode == 'b') {
-        point_cybot();
     }
 
     uart_sendStr("done\n");
@@ -106,16 +75,13 @@ int main() {
 
     initialize_imu();
     short last_imu_angle = bno->euler.heading; //IMU angle for gui changes
-    int last_angle_difference = 0;
     int delta_angle = 0;
     char str_buffer[20];
 
-    int button_pressed = 0;
 
     // === CALIBRATIONS ===
-    // callibrate_servo();
-    servo_set_callibration(-84, 232);
-    //callibrate_imu();
+     //callibrate_servo();
+    servo_set_callibration(-102, 206);
 
 
     // === MAIN FUNCTION LOOP ===
@@ -125,8 +91,10 @@ int main() {
         //ToDo make sure cliff sensors are properly set for test field
         while(Interrupt_Ready != 1) {
             bno_update(bno);
-            //lcd_printf("%hd", bno->euler.heading /16 );
+            //lcd_printf("%d, %d", sensor_data->cliffFrontLeftSignal,sensor_data->cliffFrontRightSignal );
             delta_angle = last_imu_angle/16 - bno->euler.heading /16;
+            //lcd_printf("%hd", bno->euler.heading / 16);
+             //  oi_update(sensor_data);
             if(delta_angle > 0 || delta_angle < 0) {
                 last_imu_angle = bno->euler.heading;
                 sprintf(str_buffer, "turned,%d\n", -delta_angle);
