@@ -53,6 +53,9 @@ void execute_command(uint8_t opcode, uint8_t param1, uint8_t param2) {
 
     } else if((char) opcode == 'd') {
         turn_right((double) param1);
+
+    } else if((char) opcode == 'k') {
+        play_song(1);
     }
 
     uart_sendStr("done\n");
@@ -72,6 +75,11 @@ int main() {
     cyBOT_init_scan();
     initialize_servo();
     num_objects = 0;    //used for scan_range()
+
+    unsigned char notes[] = {71, 73, 75, 76, 78, 80, 82, 83};
+    unsigned char durations[] = {32, 32, 32, 32,32, 32, 32, 32};
+    load_song(1,8, (unsigned char *) notes, (unsigned char *) durations);
+
 
     initialize_imu();
     short last_imu_angle = bno->euler.heading; //IMU angle for gui changes
@@ -93,7 +101,7 @@ int main() {
             bno_update(bno);
             //lcd_printf("%d, %d", sensor_data->cliffFrontLeftSignal,sensor_data->cliffFrontRightSignal );
             delta_angle = last_imu_angle/16 - bno->euler.heading /16;
-            //lcd_printf("%hd", bno->euler.heading / 16);
+            lcd_printf("%hd", bno->euler.heading / 16);
              //  oi_update(sensor_data);
             if(delta_angle > 0 || delta_angle < 0) {
                 last_imu_angle = bno->euler.heading;
